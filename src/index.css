@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-bg:#222222;
+  --secondry-bg:#303030;
+
+  /* --text-gradient: linear-gradient(270deg, #e7b764 2.27%, #8f6a40 95.35%); */
+  --text-gradient: linear-gradient(270deg, #8f6a40 2.27%, #e7b764 95.35%);
+  --text-primary:#ffffff;
+  --text-secondry:#BFBEBE;
+  --golden-txt1:#e7b764;
+
+  --border-color1: #735530;
+  --border-color2: #e7b764;
+  
+
+  --curve-size: 0.7em;
+  --curve-size2: 5em;
+}
+
+@font-face {
+  font-family: "Gbold";
+  src: local("Gbold"), url("/Gilroy-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Glight";
+  src: local("Glight"), url("/Gilroy-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gregular";
+  src: local("Gregular"), url("/Gilroy-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gsemibold";
+  src: local("Gsemibold"), url("/Gilroy-SemiBold.ttf") format("truetype");
+}
+
+
+
+
+
+.Gbold {
+  font-family: Gbold;
+}
+.Glight {
+  font-family: Glight;
+}
+.Gregular {
+  font-family: Gregular;
+}
+.Gsemibold {
+  font-family: Gsemibold;
+}
+
+p {
+  font-family: Gregular;
+}
+h3 {
+  font-family: Gsemibold;
+}
+h1 {
+  font-family: Gsemibold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #222222;
+  color: white;
+  overflow-x: hidden;
+  font-family: sfPro;
+}
+.headroom {
+  z-index: 50 !important;
+}
+
+.text-gradient {
+  background: var(--text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bg-gradient {
+  background: var(--text-gradient)
+}
+
+
+
+
+
+
+.neoCard {
+  background: #222;
+  box-shadow: -2px -2px 8.5px -1px rgba(62, 62, 62, 0.9),
+    6px 6px 21.4px 0px rgba(0, 0, 0, 0.5);
+}
+.hovNeoCard {
+  background: #222;
+  box-shadow: -2px -2px 8.5px -1px rgba(62, 62, 62, 0.9),
+    6px 6px 21.4px 0px rgba(0, 0, 0, 0.5);
+}
+.hovNeoCard:hover {
+  fill: #222;
+  box-shadow: -1px -2px 4px 0px rgba(0, 0, 0, 0.25) inset,
+    1px 2px 4px 0px rgba(62, 62, 62, 0.25) inset;
+  filter: drop-shadow(1px 3px 4.4px rgba(62, 62, 62, 0.5))
+    drop-shadow(-1px -2px 8.5px rgba(0, 0, 0, 0.9));
+}
+
+
+/* Add this to your CSS file */
+.hide-scrollbar {
+  overflow: auto; /* or overflow-y: scroll; */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
