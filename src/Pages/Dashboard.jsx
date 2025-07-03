@@ -113,14 +113,14 @@
                                         <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
                                     </div>
                                     <h3 className="text-[var(--text-secondry)] text-lg ">
-                                        AMERI Coin Balance
+                                        Referrals
                                     </h3>
                                 </div>
                                 <div className="text-2xl font-bold text-white mb-2">
-                                    10 AMERI
+                                    10  
                                 </div>
                                 <p className="text-[var(--text-secondry)] text-sm">
-                                    Estimated value: $0
+                                    Start referring to earn rewards
                                 </p>
                             </div>
 
@@ -131,15 +131,15 @@
                                         <FaTag className="text-[var(--golden-txt1)] text-2xl" />
                                     </div>
                                     <h3 className="text-[var(--text-secondry)] text-lg ">
-                                        Token Price
+                                        Referral Income
                                     </h3>
                                 </div>
                                 <div className="text-2xl font-bold text-white mb-2">
-                                    $0.0005
+                                    10 AMERI
                                 </div>
-                                <p className="text-[var(--text-secondry)] text-sm">
+                                {/* <p className="text-[var(--text-secondry)] text-sm">
                                     Current price at launch
-                                </p>
+                                </p> */}
                             </div>
 
                             {/* Card 3 */}
@@ -149,15 +149,15 @@
                                         <FaPercentage className="text-[var(--golden-txt1)] text-2xl" />
                                     </div>
                                     <h3 className="text-[var(--text-secondry)] text-lg ">
-                                        Earning percentage
+                                        Bonus in USD
                                     </h3>
                                 </div>
                                 <div className="text-2xl font-bold text-white mb-2">
-                                    5% Bonus
+                                    $10
                                 </div>
-                                <p className="text-[var(--text-secondry)] text-sm">
+                                {/* <p className="text-[var(--text-secondry)] text-sm">
                                     Enhanced rewards active
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                                 Start Your Referral Journey
                             </h3>
                             <p className="text-[var(--text-secondry)] md:text-left text-center mb-7">
-                                Invite friends and earn 10% commission on their purchases.
+                                Invite friends and earn 5% commission on their purchases.
                                 Building wealth together!
                             </p>
 

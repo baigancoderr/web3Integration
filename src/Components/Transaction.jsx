@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { CgCopy } from 'react-icons/cg';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
 
@@ -65,9 +67,6 @@ const Transaction = ({ trxData, datatype }) => {
     const currentPageData = getCurrentPageData();
 
 
-
-
-
     const [copyStatus, setCopyStatus] = useState({});
 
     const handleCopyAddress = (code, index, column) => {
@@ -107,13 +106,13 @@ const Transaction = ({ trxData, datatype }) => {
             <div className=' w-full    ' >
                 <div className="relative overflow-x-auto shadow-md   ">
                     <table className="w-full text-sm text-left  ">
-                        <thead className="text-xs text-[var(--text-secondry )] uppercase bg-gray-800">
+                        <thead className="text-xs text-[var(--text-secondry )] uppercase bg-gray-900">
                             <tr className='font-bold text-sm tracking-wider' >
                                 <th scope="col" className="px-6 py-3 text-nowrap ">Sr no.</th>
-                                <th scope="col" className="px-6 py-3">TRX Hash</th>
-                                <th scope="col" className="px-6 py-3">From</th>
-                                <th scope="col" className="px-6 py-3">To </th>
-                                <th scope="col" className="px-6 py-3"> Amount</th>
+                                <th scope="col" className="px-6 py-3">AMERI amount</th>
+                                <th scope="col" className="px-6 py-3">Transaction hash</th>
+                                <th scope="col" className="px-6 py-3">Wallet Address</th>
+                                <th scope="col" className="px-6 py-3"> Date </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -124,12 +123,10 @@ const Transaction = ({ trxData, datatype }) => {
                                         className="bg-[var(--primary-bg)] border-b hover:bg-[#292e35]"
                                     >
                                         <td className="px-6 py-4">{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                                        <td onClick={() => handleCopyAddress(row[0], index, "col0")} className="px-6 py-4 text-yellow-500 ">
+
+                                        <td   className="px-6 py-4 text-[var(--golden-txt1)] ">
                                             <div className='relative flex gap-2'>
-                                                <CgCopy
-                                                    className={`text-lg active:scale-[0.8] transition-all ease-in-out ${copyStatus[`${index}-col0`] ? "text-green-500" : "text-white"
-                                                        }`}
-                                                />
+                                                
                                                 <p className='cursor-pointer'>
                                                     {row[0]?.length > 10 ? `${row[0].slice(0, 10)}...` : row[0]}
 
@@ -161,11 +158,11 @@ const Transaction = ({ trxData, datatype }) => {
                                         </td>
 
                                         {/* <td className="px-6 py-4 text-white text-nowrap ">$ {row[1]}</td> */}
-                                        {/* <td className="px-6 py-4 text-yellow-500 text-nowrap font-bold ">$ {row[2]}</td> */}
+                                        {/* <td className="px-6 py-4 text-[var(--golden-txt1)] text-nowrap font-bold ">$ {row[2]}</td> */}
 
                                         <td className="px-6 py-4">
-
-                                            {typeof row[3] === 'number' ? row[3].toFixed(5) : parseFloat(row[3]).toFixed(5)}
+                                            {row[3]}
+                                            {/* {typeof row[3] === 'number' ? row[3].toFixed(5) : parseFloat(row[3]).toFixed(5)} */}
 
                                         </td>
                                     </tr>
@@ -179,7 +176,7 @@ const Transaction = ({ trxData, datatype }) => {
                 <nav className="flex gap-2 items-center justify-end pt-4" aria-label="Table navigation">
                     <button
                         onClick={() => setCurrentPage(currentPage > 1 ? currentPage - 1 : 1)}
-                        className="px-3 h-8 text-yellow-500 bg-gray-700 border-gray-600 rounded hover:text-white hover:bg-gray-600"
+                        className="px-3 h-8 text-[var(--golden-txt1)] bg-gray-700 border-gray-600 rounded hover:text-white hover:bg-gray-600"
                         disabled={currentPage <= 1}
                     >
                         <FaAngleDoubleLeft />
@@ -190,7 +187,7 @@ const Transaction = ({ trxData, datatype }) => {
                             <button
                                 key={index}
                                 onClick={() => handlePageClick(page)}
-                                className={`px-3 h-8 border border-gray-600 rounded ${currentPage === page ? 'bg-gray-500 text-yellow-500' : 'bg-gray-700 text-yellow-500 hover:text-white hover:bg-gray-600'
+                                className={`px-3 h-8 border border-gray-600 rounded ${currentPage === page ? 'bg-gray-500 text-[var(--golden-txt1)]' : 'bg-gray-700 text-[var(--golden-txt1)] hover:text-white hover:bg-gray-600'
                                     }`}
                             >
                                 {page}
@@ -200,7 +197,7 @@ const Transaction = ({ trxData, datatype }) => {
 
                     <button
                         onClick={() => setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages)}
-                        className="px-3 h-8 text-yellow-500 bg-gray-700 border-gray-600 rounded hover:text-white hover:bg-gray-600"
+                        className="px-3 h-8 text-[var(--golden-txt1)] tracking-widest bg-gray-700 border-gray-600 rounded hover:text-white hover:bg-gray-600"
                         disabled={currentPage >= totalPages}
                     >
 
@@ -211,5 +208,16 @@ const Transaction = ({ trxData, datatype }) => {
         </div>
     );
 };
+
+Transaction.propTypes = {
+    trxData: PropTypes.shape({
+        transaction: PropTypes.arrayOf(
+            PropTypes.arrayOf(
+                PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+            )
+        ).isRequired,
+    }).isRequired,
+    datatype: PropTypes.string.isRequired,
+  };
 
 export default Transaction;

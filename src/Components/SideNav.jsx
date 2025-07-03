@@ -68,14 +68,14 @@ const SideNav = () => {
                         </svg>
                     </button>
 
-                    <div className=" bg-[var(--primary-bg)]   flex  justify-end w-full   px-8 py-1 tablet:ml-0">
+                    <div className=" bg-[var(--primary-bg)]   flex  justify-end w-full   px-2 sm:px-8 py-1 tablet:ml-0">
                         <div className="flex   items-center gap-3">
                             <div className="flex text-right flex-col">
-                                <p>Admin Name</p>
+                                <p className="sm:text-base text-sm" >Admin Name</p>
                                 {/* <p className="font-light text-sm  text-gray-400 ">Admin number 2</p> */}
                             </div>
                             <div className="rounded-full p-[5px] neoCard ">
-                                <img src={icon} className="w-10 h-fit " alt="" />
+                                <img src={icon} className="w-8 h-fit " alt="" />
                             </div>
                             <div className=" relative rounded-full p-[5px] hovNeoCard   ">
                                 <MdNotificationsNone className="  text-2xl text-[var(----text-secondry)]" />
@@ -195,7 +195,7 @@ const SideNav = () => {
                                                     ></span>
                                                 </Link>
                                                 <Link
-                                                    to="/"
+                                                    to="/livetransactions"
                                                     onClick={closeSidebar}
                                                     className=" rounded-md px-2 py-1 relative inline-block group cursor-pointer text-[var(--text-primary)]"
                                                 >

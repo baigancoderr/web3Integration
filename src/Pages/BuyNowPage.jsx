@@ -72,9 +72,9 @@ const BuyNowPage = () => {
                 {/* Left: How to Buy */}
                 <div className="neoCard    p-4 py-7 rounded-xl space-y-5">
                     <div className="flex justify-between items-center">
-                        <h3 className="Gsemibold underline underline-offset-4 text-[var(--text-primary)]">
+                        <a href="#how-to-buy"  className="Gsemibold underline underline-offset-4 text-[var(--text-primary)]">
                             HOW TO BUY ⓘ
-                        </h3>
+                        </a>
                         <span className="text-sm text-[var(--text-secondry)]">
                             Presale AMERI
                         </span>
@@ -226,7 +226,7 @@ const BuyNowPage = () => {
             </div>
 
             {/* Bottom Section: How to Buy Steps */}
-            <div className="neoCard p-6 rounded-xl space-y-10">
+            <div id="how-to-buy+i" className="neoCard p-6 rounded-xl space-y-10">
                 <h3 className="text-center text-xl text-gradient Gbold">
                     HOW TO BUY AMERI COIN
                 </h3>

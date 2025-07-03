@@ -10,11 +10,13 @@ const Dashboard = lazy(() => import('./Pages/Dashboard'))
 const BuyNowPage = lazy(() => import('./Pages/BuyNowPage'))
 const ReferralPage = lazy(() => import('./Pages/ReferralPage'))
 const ProfilePage = lazy(() => import('./Pages/ProfilePage'))
+const MyTransaction = lazy(() => import('./Pages/MyTransaction'))
+const LiveTransactions = lazy(() => import('./Pages/LiveTransactions'))
 
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import SideNav from './Components/SideNav';
 import { ToastContainer } from 'react-toastify';
-import MyTransaction from './Pages/MyTransaction';
+ 
  
  
 
@@ -114,6 +116,7 @@ function App() {
             <Route path="/referral" element={<MainLayout> <ReferralPage />  </MainLayout>} />
             <Route path="/profile" element={<MainLayout> <ProfilePage />  </MainLayout>} />
             <Route path="/mytransactions" element={<MainLayout> <MyTransaction />  </MainLayout>} />
+            <Route path="/livetransactions" element={<MainLayout> <LiveTransactions />  </MainLayout>} />
 
 
             <Route path="/l" element={<MainLayout>  <Loader />  </MainLayout>} />
