@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { FiSearch, FiCalendar, FiChevronDown } from "react-icons/fi";
 
 import { CgCopy } from 'react-icons/cg';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
@@ -13,6 +14,8 @@ const Transaction = ({ trxData, datatype }) => {
     const itemsPerPage = 10;
 
     const totalPages = Math.ceil(data[currentData].length / itemsPerPage);
+ const [openDate, setOpenDate] = useState(false);
+
 
     const getCurrentPageData = () => {
         const dataset = data[currentData];
@@ -84,35 +87,79 @@ const Transaction = ({ trxData, datatype }) => {
 
 
     return (
+        <>
+
+    
+<div className="flex justify-end items-center gap-3 mb-4">
+  {/* Search Bar */}
+  <div className="relative w-[200px] neoCard !rounded-[8px] ">
+    <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+      <FiSearch size={16} />
+    </span>
+    <input
+      type="text"
+      placeholder="Search"
+      className="pl-10 pr-3 py-2 !rounded-[8px] border border-gray-300 focus:outline-none focus:ring-1 focus:ring-[#2659F2] text-sm text-[#B7B7B7] open-sans w-full"
+    />
+  </div>
+
+  {/* Date Filter */}
+  <div className="relative neoCard">
+    <button
+      onClick={() => setOpenDate(!openDate)}
+      className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm text-[#525252]"
+    >
+      Select date
+      <FiChevronDown size={16} />
+    </button>
+
+    {openDate && (
+      <div className="neoCard absolute top-[170%] right-0 w-[200px] bg-white border border-[#2659F2] rounded-lg p-4 shadow-lg z-50">
+        <div className="relative mb-3">
+          <input
+            type="text"
+            placeholder="Start Date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => (e.target.type = "text")}
+            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg text-sm placeholder:text-[#525252] text-[#525252] focus:outline-none"
+          />
+          <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
+        </div>
+
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="End Date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => (e.target.type = "text")}
+            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg text-sm placeholder:text-[#525252] text-[#525252] focus:outline-none"
+          />
+          <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+
+
+
+
         <div id="ref-main" className=" w-full Gregular     ">
             <div className="  space-x-5 w-full    tablet:space-x-2 ">
-                <button
-                    onClick={() => handleSwitchData('transaction')}
-                    className={` px-3 py-1 
-                     ${currentData === 'transaction' ? 'bg-gradient' : 'bg-gray-700'}
-                      text-black Gbold font-bold uppercase  w-full text-2xl rounded-t-xl tracking-wider py-3  `}
-                >
-                    {datatype}
-                </button>
-                {/* <button
-                    onClick={() => handleSwitchData('Refral')}
-                    className={`px-3 py-1
-                     ${currentData === 'Refral' ? 'bg-yellow-500' : 'bg-gray-700'}
-                      text-white rounded-3xl`}
-                >
-                    Referral
-                </button> */}
+                
+             
             </div>
             <div className=' w-full    ' >
                 <div className="relative overflow-x-auto shadow-md   ">
                     <table className="w-full text-sm text-left  ">
-                        <thead className="text-xs text-[var(--text-secondry )] uppercase bg-gray-900">
+                        <thead className="text-xs text-[var(--text-secondry )]  bg-gray-900 neoCard">
                             <tr className='font-bold text-sm tracking-wider' >
-                                <th scope="col" className="px-6 py-3 text-nowrap ">Sr no.</th>
-                                <th scope="col" className="px-6 py-3">AMERI amount</th>
-                                <th scope="col" className="px-6 py-3">Transaction hash</th>
-                                <th scope="col" className="px-6 py-3">Wallet Address</th>
-                                <th scope="col" className="px-6 py-3"> Date </th>
+                                <th scope="col" className="px-6 py-3 text-nowrap text-[1.25rem] !text-[#363636] ">No</th>
+                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#2659F2]">Amount</th>
+                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#363636]">Adress</th>
+                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#2659F2]">USD Value</th>
+                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#363636]"> Date </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -120,11 +167,11 @@ const Transaction = ({ trxData, datatype }) => {
                                 <>
                                     <tr
                                         key={index}
-                                        className="bg-[var(--primary-bg)] border-b hover:bg-[#292e35]"
+                                        className="bg-[#FFFDFD]  "
                                     >
-                                        <td className="px-6 py-4">{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                                        <td className="px-6 py-4 text-[#363636] open-sans">{(currentPage - 1) * itemsPerPage + index + 1}</td>
 
-                                        <td   className="px-6 py-4 text-[var(--golden-txt1)] ">
+                                        <td   className="px-6 py-4 text-[#2659F2] ">
                                             <div className='relative flex gap-2'>
                                                 
                                                 <p className='cursor-pointer'>
@@ -133,19 +180,19 @@ const Transaction = ({ trxData, datatype }) => {
                                                 </p>
                                             </div>
                                         </td>
-                                        <td onClick={() => handleCopyAddress(row[1], index, "col1")} className="px-6 py-4 text-white ">
+                                        <td onClick={() => handleCopyAddress(row[1], index, "col1")} className="px-6 py-4 text-[#363636] ">
                                             <div className='relative flex gap-2'>
-                                                <CgCopy
+                                                {/* <CgCopy
                                                     className={`text-lg active:scale-[0.8] transition-all ease-in-out ${copyStatus[`${index}-col1`] ? "text-green-500" : "text-white"
                                                         }`}
-                                                />
+                                                /> */}
                                                 <p className='cursor-pointer'>
                                                     {row[1]?.length > 10 ? `${row[1].slice(0, 10)}...` : row[1]}
                                                 </p>
                                             </div>
                                         </td>
 
-                                        <td onClick={() => handleCopyAddress(row[2], index, "col2")} className="px-6 py-4 26680394850 ">
+                                        <td onClick={() => handleCopyAddress(row[2], index, "col2")} className="px-6 py-4 26680394850 text-[#2659F2] ">
                                             <div className='relative flex gap-2'>
                                                 <CgCopy
                                                     className={`text-lg active:scale-[0.8] transition-all ease-in-out ${copyStatus[`${index}-col2`] ? "text-green-500" : "text-white"
@@ -160,7 +207,7 @@ const Transaction = ({ trxData, datatype }) => {
                                         {/* <td className="px-6 py-4 text-white text-nowrap ">$ {row[1]}</td> */}
                                         {/* <td className="px-6 py-4 text-[var(--golden-txt1)] text-nowrap font-bold ">$ {row[2]}</td> */}
 
-                                        <td className="px-6 py-4">
+                                        <td className="px-6 py-4 text-[#363636]">
                                             {row[3]}
                                             {/* {typeof row[3] === 'number' ? row[3].toFixed(5) : parseFloat(row[3]).toFixed(5)} */}
 
@@ -176,7 +223,7 @@ const Transaction = ({ trxData, datatype }) => {
                 <nav className="flex gap-2 items-center justify-end pt-4" aria-label="Table navigation">
                     <button
                         onClick={() => setCurrentPage(currentPage > 1 ? currentPage - 1 : 1)}
-                        className="px-3 h-8 text-[var(--golden-txt1)] bg-gray-700 border-gray-600 rounded hover:text-white hover:bg-gray-600"
+                        className="px-3 h-8 text-[var(--golden-txt1)] bg-[white] border-gray-600 rounded hover:text-white hover:bg-gray-600"
                         disabled={currentPage <= 1}
                     >
                         <FaAngleDoubleLeft />
@@ -187,7 +234,7 @@ const Transaction = ({ trxData, datatype }) => {
                             <button
                                 key={index}
                                 onClick={() => handlePageClick(page)}
-                                className={`px-3 h-8 border border-gray-600 rounded ${currentPage === page ? 'bg-gray-500 text-[var(--golden-txt1)]' : 'bg-gray-700 text-[var(--golden-txt1)] hover:text-white hover:bg-gray-600'
+                                className={`px-3 h-8 border border-gray-600 rounded ${currentPage === page ? 'bg-[white] text-[var(--golden-txt1)]' : 'bg-gray-700 text-[var(--golden-txt1)] hover:text-white hover:bg-gray-600'
                                     }`}
                             >
                                 {page}
@@ -197,7 +244,7 @@ const Transaction = ({ trxData, datatype }) => {
 
                     <button
                         onClick={() => setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages)}
-                        className="px-3 h-8 text-[var(--golden-txt1)] tracking-widest bg-gray-700 border-gray-600 rounded hover:text-white hover:bg-gray-600"
+                        className="px-3 h-8 text-[var(--golden-txt1)] tracking-widest bg-[white] border-gray-600 rounded hover:text-white hover:bg-gray-600"
                         disabled={currentPage >= totalPages}
                     >
 
@@ -206,6 +253,7 @@ const Transaction = ({ trxData, datatype }) => {
                 </nav>
             </div>
         </div>
+        </>
     );
 };
 

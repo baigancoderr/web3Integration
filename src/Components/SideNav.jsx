@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 
-import logo from "../assets/logo/ameriGoldenWhite.webp";
+import logo from "../assets/logo/Urban-logo.png";
 import { MdDashboard, MdNotificationsNone } from "react-icons/md";
 
-import icon from "../assets/logo/favWhite.webp"
+import icon from "../assets/logo/Urban-main-logo.png"
 import { Link } from "react-router-dom";
 import { IoMdLogOut } from "react-icons/io";
 import { GiDiamonds, GiTakeMyMoney } from "react-icons/gi";
@@ -12,6 +12,9 @@ import { LiaShareAltSolid } from "react-icons/lia";
 import { GrTransaction } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { LuUserRound } from "react-icons/lu";
+ import walletIcon from  "../assets/images/sidenavbt.png"
+
+
 
 
 
@@ -68,25 +71,32 @@ const SideNav = () => {
                         </svg>
                     </button>
 
-                    <div className=" bg-[var(--primary-bg)]   flex  justify-end w-full   px-2 sm:px-8 py-1 tablet:ml-0">
-                        <div className="flex   items-center gap-3">
-                            <div className="flex text-right flex-col">
-                                <p className="sm:text-base text-sm" >Admin Name</p>
-                                {/* <p className="font-light text-sm  text-gray-400 ">Admin number 2</p> */}
-                            </div>
-                            <div className="rounded-full p-[5px] neoCard ">
+                    <div className="   flex  justify-end w-full   px-2 sm:px-8 py-1 tablet:ml-0">
+                        <div className="flex   items-center gap-10">
+
+                             <div className="rounded-full p-[5px] neoCard ">
                                 <img src={icon} className="w-8 h-fit " alt="" />
                             </div>
-                            <div className=" relative rounded-full p-[5px] hovNeoCard   ">
+                            <div className="flex text-right flex-col">
+                                <p className="sm:text-base text-sm text-[#000000] font-[500]" >  Name</p>
+                                {/* <p className="font-light text-sm  text-gray-400 ">Admin number 2</p> */}
+                            </div>
+
+                           
+
+                            {/* <div className=" relative rounded-full p-[5px] hovNeoCard   ">
                                 <MdNotificationsNone className="  text-2xl text-[var(----text-secondry)]" />
                                 <span className=" absolute top-0 right-0 rounded-full w-2 h-2 bg-red-600"></span>
-                            </div>
+                            </div> */}
                             <div className=" relative rounded-full p-[5px] hovNeoCard ">
                                 <IoMdLogOut className="  text-2xl text-red-600" />
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
 
                 <div
                     onClick={closeSidebar}
@@ -97,7 +107,7 @@ const SideNav = () => {
                 >
                     <aside
                         id="default-sidebar"
-                        className={`fixed   neoCard    top-0 left-0 z-40 w-64 h-screen transition-transform ${isSidebarOpen
+                        className={`fixed   neoCard    top-0 left-0 z-40 w-64 p-1 h-screen transition-transform ${isSidebarOpen
                             ? "translate-x-0  "
                             : "tablet:-translate-x-full tablet:shadow-none"
                             } translate-x-0`} // Dynamically apply translate-x-0 or -translate-x-full
@@ -112,7 +122,7 @@ const SideNav = () => {
                             <BiArrowBack />{" "}
                         </div>
 
-                        <div className="h-full    hide-scrollbar bg-[#222222]">
+                        <div className="h-full    hide-scrollbar bg-[#FFFFFF]">
                             <div className="  rounded-br-2xl mb-10 py-3 neoCard">
                                 <img className="w-[10rem] mx-auto" src={logo} alt="" />
                             </div>
@@ -121,11 +131,11 @@ const SideNav = () => {
                                     <Link
                                         to="/"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group border-2 border-[var(--border-color1)]"
+                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group  ]"
                                     >
                                         <MdDashboard className="text-2xl text-[var(--golden-txt1)]  " />
-                                        <span className=" Gregular  text-lg text-gradient font-bold ">
-                                            Dashboard
+                                        <span className=" Gregular  text-lg text-gradient font-bold  ">
+                                            Home
                                         </span>
                                     </Link>
                                 </li>
@@ -133,7 +143,7 @@ const SideNav = () => {
                                     <Link
                                         to="/buytoken"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group border-2 border-[var(--border-color1)]"
+                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <GiTakeMyMoney className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -145,7 +155,7 @@ const SideNav = () => {
                                     <Link
                                         to="/referral"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group border-2 border-[var(--border-color1)]"
+                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <LiaShareAltSolid className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -159,7 +169,7 @@ const SideNav = () => {
                                             e.stopPropagation(); // 🛑 prevent parent from closing sidebar
                                             setOpenTransaction(!openTransaction);
                                           }}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group border-2 border-[var(--border-color1)]"
+                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <GrTransaction className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -212,11 +222,14 @@ const SideNav = () => {
                                         </div>
                                     </div>
                                 </li>
+
+
+                              
                                 <li className=" ">
                                     <Link
                                         to="/profile"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group border-2 border-[var(--border-color1)]"
+                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <FaRegCircleUser className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -224,25 +237,39 @@ const SideNav = () => {
                                         </span>
                                     </Link>
                                 </li>
+                              
 
-                                <li className=" ">
-                                    <Link
-                                        to="/"
-                                        onClick={closeSidebar}
-                                        className="flex flex-col justify-center p-2  mt-28 hovNeoCard rounded-lg text-[var(--text-primary)]  space-y-3  group border-2 border-[var(--border-color1)]"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="neoCard p-2 rounded-full">
-                                                <LuUserRound className="text-3xl text-[var(--golden-txt1)]  " />
-                                            </div>
-                                            <span className="  Gsemibold  text-sm text-gradient   ">
-                                                0x59ddsc6...8e27
-                                            </span>
-                                        </div>
-                                        <p className=" text-[var(--text-secondry)]  w-full text-[13px]">Your Current Connected Wallet</p>
+                                <li>
+  <Link
+    to="/"
+    onClick={closeSidebar}
+    className="flex flex-col items-center text-center p-4 mt-28 hovNeoCard rounded-lg"
+  >
+    {/* Wallet Image */}
+    <div className="p-3 mb-2 bg-[#2659F2] flex items-center justify-center !rounded-[5px]">
+  <img
+    src={walletIcon}
+    alt="Wallet"
+    className="w-25 h-15 object-contain"
+  />
+</div>
 
-                                    </Link>
-                                </li>
+
+    {/* Wallet Address */}
+    <span className="Gsemibold text-sm text-gradient mb-1">
+      0x59ddsc6...8e27
+    </span>
+
+    {/* Description */}
+    <p className="text-[var(--text-secondry)] text-[13px]">
+      Your Current Connected Wallet
+    </p>
+  </Link>
+</li>
+
+
+
+
                             </ul>
 
 
