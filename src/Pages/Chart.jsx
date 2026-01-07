@@ -202,14 +202,15 @@ const referralAreaChart = {
       <div className=" neoBorder rounded-xl">
         <div className="neoCard px-4 py-3 rounded-xl">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-[1.4rem] font-bold text-[#FFFFFF]">
-              Referrals : 0
-            </h3>
+           <h3 className="text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] font-bold text-white">
+  Referrals : 0
+</h3>
+
     
          
          
         <div
-  className="flex gap-3 text-sm rounded-lg px-3 py-1 bg-[#FFCC66]"
+  className="flex gap-3 text-sm rounded-lg px-1 py-1 bg-[#FFCC66]"
   style={{
     boxShadow: `
       6px 6px 11.4px 0px #0000002E,

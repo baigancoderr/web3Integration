@@ -1,5 +1,5 @@
 import Transaction from '../Components/Transaction';
-import transactionIcon from "../assets/images/dash-trans-logo.png";
+import transactionIcon from "../assets/images/trans-logo.png";
 
 const MyTransaction = () => {
   const data = {

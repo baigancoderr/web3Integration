@@ -150,31 +150,21 @@ box-shadow: 0px 4px 4px 0px #2C4AEC0F ,
 .neoBorder > .neoCard {
   border-radius: 16px;
 }
-
-
-
 .hovNeoCard {
   background: #FFCC66;
- 
-
 }
 .hovNeoCard:hover {
- 
   box-shadow:
     -3px -3px 7px 1px #FFFFFF inset,
      2px  2px 5px 1px #B8B9BE inset;
 
 }
-
-
 /* Add this to your CSS file */
 .hide-scrollbar {
   overflow: auto; /* or overflow-y: scroll; */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
-
-
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */

@@ -3,18 +3,18 @@ import { FaChevronDown } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { SiBinance, SiEthereum, SiTether } from "react-icons/si";
 import { useState } from "react";
+import ReactApexChart from "react-apexcharts";
+
+import PortfolioRadialChart from "./PortfolioRadialChart";
 
 
-import hb1 from "../assets/BuyNow/wallat.png"
 import MOX from "../assets/BuyNow/MOX.png";
 import pay from "../assets/BuyNow/pay.png";
 import wallet from "../assets/BuyNow/wallet.png";
 import usd from "../assets/BuyNow/usdt.png";
-import hb2 from "../assets/BuyNow/note.png"
-import hb3 from "../assets/BuyNow/hand.png"
-import hb4 from "../assets/BuyNow/mobile.png"
-import USDT from "../assets/images/USDT.png";
-import ETH from "../assets/images/ETH.png";
+
+import USDT from "../assets/images/usdt1.png";
+
 import Leaderboard from "../assets/images/LeaderBoard.png";
 
 
@@ -33,6 +33,8 @@ const currencies = [
     },
 ];
 
+
+
 const BuyNowPage = () => {
     const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -40,6 +42,66 @@ const BuyNowPage = () => {
     const handleBuy = () => {
         toast.success("Purchase simulated (UI only)");
     };
+
+
+
+
+// const PortfolioRadialChart = () => {
+//   const options = {
+//     chart: {
+//       type: "radialBar",
+//       sparkline: { enabled: true },
+//     },
+
+//     series: [80, 60, 40],
+
+//     plotOptions: {
+//       radialBar: {
+//         startAngle: 0,
+//         endAngle: 360,
+
+//         hollow: {
+//           size: "32%", 
+//         },
+
+//         track: {
+//           background: "#FFFFFF", 
+//           strokeWidth: "3px",   
+//           opacity:1, 
+//           margin: 10,
+//         },
+
+//         dataLabels: {
+//           show: false,
+//         },
+//       },
+//     },
+
+  
+
+//     colors: ["#FFCC66", "#E6B65C", "#FFFFFF"],
+//   };
+
+//   return (
+//     <ReactApexChart
+//       options={options}
+//       series={options.series}
+//       type="radialBar"
+//       height={400}
+//     />
+//   );
+// };
+
+
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("Weekly (2025)");
+
+  const options = [
+    "Daily (2025)",
+    "Weekly (2025)",
+    "Monthly (2025)",
+    "Yearly (2025)",
+  ];
 
     return (
         <div className="space-y-10">
@@ -94,11 +156,11 @@ const BuyNowPage = () => {
 
 
 
-            {/* Buy Token and Leaderboard */}
+            
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                
-                {/* Left: Leaderboard */}
+                
                 <div className="neoBorder !rounded-[5px] h-full">
                 <div className="neoCard  pb-6 pt-0 !rounded-[5px] h-full">
                 
@@ -140,7 +202,7 @@ const BuyNowPage = () => {
 
       <div className="text-right">
         <p className="text-[14px] text-[#FFFFFF] pb-1 open-sans font-[700]">
-          Total Transactions
+           Transactions
         </p>
         <p className="text-gold-gradienttt font-[600]">
           $3,927,234.34
@@ -163,7 +225,7 @@ const BuyNowPage = () => {
              <div className=" neoBorder !rounded-[5px]  ">
   <div className="!bg-[#000000] !rounded-[5px] p-5 space-y-6  text-white">
 
-    {/* Title */}
+   
     <div
   className="border px-6 py-6 !rounded-[5px]"
   style={{
@@ -274,13 +336,13 @@ const BuyNowPage = () => {
     {/* Buttons */}
   <div className="neoBorder !rounded-[10px] !mb-3.5">
   <div className="bg-[#000000] flex flex-row gap-4 px-4 sm:px-10 py-5 !rounded-[10px] flex-wrap custom-responsive">
-    {/* Connect Wallet Button with image icon */}
+    
     <button className="flex-1 py-2 rounded-lg neoCard border border-[#E6B65C] flex items-center justify-center gap-2">
       <img src={wallet} alt="wallet" className="w-5 h-5" />
       CONNECT WALLET
     </button>
 
-    {/* Buy Now Button with image icon */}
+   
     <button
       onClick={handleBuy}
       className="flex-1 py-2 rounded-lg bg-[#000000] border border-[#FFCC66] flex items-center justify-center gap-2 text-[#FFCC66]"
@@ -320,7 +382,7 @@ const BuyNowPage = () => {
 
         {/* LEFT BOX */}
         <div className="neoBorder">
-        <div className="rounded-2xl  Poppins neoCard p-8 bg-gradient-to-br from-black via-zinc-900 to-black">
+        <div className="rounded-2xl h-full  Poppins neoCard p-8 bg-gradient-to-br from-black via-zinc-900 to-black">
           <h2 className="text-white text-2xl  mb-6">
             How to Grab Moxcoin
           </h2>
@@ -371,61 +433,52 @@ const BuyNowPage = () => {
 
         {/* RIGHT BOX */}
         <div className="neoBorder h-full">
-        <div className="rounded-2xl  h-full neoCard p-8 ">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-white text-xl font-semibold">
-              Portofolio Chart
-            </h2>
-            <button className="bg-zinc-800 text-white text-xs px-4 py-2 rounded-full">
-              Weekly (2025)
+  <div className="rounded-2xl h-full neoCard p-4 py-4">
+    
+    <div className="flex items-center justify-between ">
+      <h2 className="text-white text-xl font-semibold">
+        Portofolio Chart
+      </h2>
+      {/* <button className="neoCard !Poppins text-s px-6 py-3 rounded-full flex items-center justify-center gap-2">
+  Weekly (2025)
+</button> */}
+
+
+ <div className="relative inline-block">
+      {/* Button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="neoCard !Poppins text-s px-6 py-3 rounded-full flex items-center justify-center gap-2"
+      >
+        {selected}
+        <span className={`transition ${open ? "rotate-180" : ""}`}>▼</span>
+      </button>
+
+      {/* Dropdown */}
+      {open && (
+        <div className="absolute right-0 mt-2 w-48 rounded-xl neoCard bg-black border border-zinc-700 overflow-hidden z-50">
+          {options.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setSelected(item);
+                setOpen(false);
+              }}
+              className="w-full text-left px-4 py-3 text-sm text-white hover:bg-zinc-800 transition"
+            >
+              {item}
             </button>
-          </div>
-
-          <div className="flex gap-8 items-center">
-
-            {/* CHART PLACEHOLDER */}
-            <div className="relative w-48 h-48">
-              <div className="absolute inset-0 rounded-full border-[10px] border-yellow-400"></div>
-              <div className="absolute inset-4 rounded-full border-[10px] border-yellow-300"></div>
-              <div className="absolute inset-8 rounded-full border-[10px] border-white"></div>
-            </div>
-
-            {/* LEGEND */}
-            <div className="space-y-4 text-sm">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 bg-yellow-400 rounded"></span>
-                  <p className="text-gray-400">Income (50%)</p>
-                </div>
-                <p className="text-white font-semibold ml-5">
-                  $632,662,662
-                </p>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 bg-yellow-300 rounded"></span>
-                  <p className="text-gray-400">Spends (30%)</p>
-                </div>
-                <p className="text-white font-semibold ml-5">
-                  $53,234,662
-                </p>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 bg-white rounded"></span>
-                  <p className="text-gray-400">Safe (20%)</p>
-                </div>
-                <p className="text-white font-semibold ml-5">
-                  $21,412,556
-                </p>
-              </div>
-            </div>
-
-          </div>
+          ))}
         </div>
-        </div>
+      )}
+    </div>
+
+    </div>
+
+    <PortfolioRadialChart />
+  </div>
+</div>
+
 
       </div>
     </div>

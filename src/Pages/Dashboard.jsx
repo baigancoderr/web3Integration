@@ -5,8 +5,8 @@
     import { LuCopy } from "react-icons/lu";
     import { toast } from 'react-toastify';
     import { SlUserFollowing } from 'react-icons/sl';
-    import transactionIcon from "../assets/images/dash-trans-logo.png";
-    import dash_last from "../assets/images/dash-last.png";
+    import transactionIcon from "../assets/images/trans-logo.png";
+   
 import walletIcon from "../assets/images/wallet.png";
 import tokenomicIcon from "../assets/images/tokenomic.png";
 import wall from "../assets/images/wall.png";
@@ -194,56 +194,14 @@ const referralAreaChart = {
                 <div className="space-y-10">
 
                   
-                 {/* <div className="neoBorder rounded-[2px]">
-              <div className="neoCard flex md:gap-0 gap-4 md:flex-row flex-col-reverse justify-between rounded-[2px] p-6 bg">
-                <div className="md:w-[70%]  ">
-                   
-                   <div className=" neoCard rounded-md py-4 px-5 bg-[#CACACA] ">
-  <div className="w-full h-5 bg-[#FFFFFF] rounded-sm overflow-hidden">
-<div className="h-full w-[60%] bg-gradient-to-r from-[#2659F2] to-[#001D76]"></div>
-  </div>
-</div>
-
-                    <div className="w-full flex justify-between mt-3 md:text-base text-[12px] text-[#2659F2] font-medium ">
-  <p>Raised - $1.03M</p>
-  <p>Current - $515k</p>
-</div>
-
-
-
-                </div>
-
-                <div className="mx-6 w-[2px] bg-[#575757]" />
-                <div className="flex gap-3 items-center md:w-[20%] flex-wrap justify-between text-[#2659F2] text-sm font-bold ">
-                    <div className="  ">
-                        <p className=" mb-1">Current Price</p>
-                        <span className="text-[var(--text-primary)] font-bold">
-                            $0.555656
-                        </span>
-                    </div>
-                    <div className="">
-                        <p className=" mb-1"> Next Price</p>
-                        <span className="text-[var(--text-primary)] font-bold">
-                            $0.555656
-                        </span>
-                    </div>
-                </div>
-            </div>
-</div> */}
+                
 
 
 
 
                     <div className="     ">
                         
-                        {/* <div className="mb-5 ">
-                            <h2 className="text-2xl md:text-3xl     text-gradient w-fit  open-sans ">
-                                Portfolio Dashboard
-                            </h2>
-                            <p className="text-[#363636] mt-1 open-sans font-bold">
-                                Track your investments and referral rewards in real-time.
-                            </p>
-                        </div> */}
+                     
 
 
 
@@ -261,9 +219,7 @@ const referralAreaChart = {
       <div className="hovNeoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between ">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            {/* <div className="p-2 rounded-md neoCard">
-              <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
-            </div> */}
+           
             <h3 className="text-[#525252] text-lg "> Total Net Profit</h3>
           </div>
           <div className="text-2xl font-bold text-[#000000] mb-2 ">$60,641.61</div>
@@ -465,15 +421,7 @@ const referralAreaChart = {
 
 
    
-    {/* <div>
-  <div className="neoCard rounded-b-xl p-5">
-    <img
-      src={tokenomicChart}
-      alt="tokenomic chart"
-      className="w-full h-auto object-contain"
-    />
-  </div>
-</div> */}
+   
 <div
   className="p-[1px] rounded-b-xl
              bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">

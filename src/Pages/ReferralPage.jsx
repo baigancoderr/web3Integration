@@ -2,14 +2,14 @@ import { FaCopy, FaFacebookF, FaTelegramPlane, FaWhatsapp,FaPaperPlane } from "r
 import { FaXTwitter } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import ref from "../assets/images/ref.png";
-import ameriIcon from "../assets/images/ameriIcon.webp"
+
 import { Chart } from "./Chart";
    import { FaPercentage } from 'react-icons/fa';
     import { FaCoins, FaTag } from 'react-icons/fa6';
     import { LuCopy } from "react-icons/lu";
     import { SlUserFollowing } from 'react-icons/sl';
 import referralImg from "../assets/images/ref_img.png";
-import ok from "../assets/images/dash-last.png"
+
 import ref1 from "../assets/Refrall/ref1.png"
 import ref2 from "../assets/Refrall/ref2.png"
 
