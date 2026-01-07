@@ -1,7 +1,9 @@
 import { FaChevronDown } from "react-icons/fa";
  
 import { toast } from "react-toastify";
-import { SiBinance, SiEthereum, SiTether } from "react-icons/si";
+import { SiBinance, SiEthereum, SiTether ,SiSolana} from "react-icons/si";
+
+
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
@@ -94,6 +96,12 @@ const BuyNowPage = () => {
 
 
   const [open, setOpen] = useState(false);
+  // BUY WITH dropdown
+const [tokenOpen, setTokenOpen] = useState(false);
+
+// Chart dropdown
+const [periodOpen, setPeriodOpen] = useState(false);
+
   const [selected, setSelected] = useState("Weekly (2025)");
 
   const options = [
@@ -102,6 +110,37 @@ const BuyNowPage = () => {
     "Monthly (2025)",
     "Yearly (2025)",
   ];
+
+  const [activeToken, setActiveToken] = useState("BNB");
+
+  const payIcons = {
+  BNB: <SiBinance className="text-yellow-400 text-xl" />,
+  ETH: <SiEthereum className="text-blue-400 text-xl" />,
+  SOL: <SiSolana className="text-purple-400 text-xl" />,
+};
+
+const tokens = [
+  {
+    key: "BNB",
+    label: "BNB",
+    icon: <SiBinance className="text-yellow-400 text-xl" />,
+  },
+  {
+    key: "ETH",
+    label: "ETH",
+    icon: <SiEthereum className="text-blue-400 text-xl" />,
+  },
+  {
+    key: "SOL",
+    label: "SOL",
+    icon: <SiSolana className="text-purple-400 text-xl" />,
+  },
+];
+
+const [payOpen, setPayOpen] = useState(false);
+
+
+  
 
     return (
         <div className="space-y-10">
@@ -284,17 +323,66 @@ const BuyNowPage = () => {
         YOU CAN  <span className=" text-[#FFCC66]">  BUY WITH</span> 
       </p>
 
-      <div className="flex justify-center gap-10">
-        <button className="flex items-center gap-2 px-6 py-2 rounded-lg neoCard border border-[#E6B65C]">
-          <img src={USDT} className="w-5 h-5" />
-          USDT
-        </button>
+    <div className="flex justify-center gap-10">
+  <div className="relative flex justify-center">
+    {/* ===== Small Screen : Dropdown ===== */}
+    <div className="md:hidden w-full">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-lg neoCard border border-[#E6B65C]"
+      >
+        {activeToken === "BNB" && <SiBinance className="text-yellow-400" />}
+        {activeToken === "ETH" && <SiEthereum className="text-blue-400" />}
+        {activeToken === "SOL" && <SiSolana className="text-purple-400" />}
+        {activeToken}
+      </button>
 
-        <button className="flex items-center gap-2 px-6 py-2 rounded-lg neoCard border border-[#E6B65C]">
-          <SiBinance className="text-yellow-400 text-lg" />
-          BNB
+      {open && (
+        <div className="absolute top-full mt-2 w-full rounded-lg neoCard border border-[#E6B65C] z-50">
+          {["BNB", "ETH", "SOL"].map((token) => (
+            <button
+              key={token}
+              onClick={() => {
+                setActiveToken(token);
+                setOpen(false);
+              }}
+              className="w-full flex items-center gap-2 px-4 py-2 hover:bg-[#1a1a1a]"
+            >
+              {token === "BNB" && <SiBinance className="text-yellow-400" />}
+              {token === "ETH" && <SiEthereum className="text-blue-400" />}
+              {token === "SOL" && <SiSolana className="text-purple-400" />}
+              {token}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+
+    {/* ===== Medium & Large Screen : Side by Side ===== */}
+    <div className="hidden md:flex gap-3">
+      {["BNB", "ETH", "SOL"].map((token) => (
+        <button
+          key={token}
+          onClick={() => setActiveToken(token)}
+          className={`flex items-center gap-2 px-5 py-2 rounded-lg neoCard border 
+            ${
+              activeToken === token
+                ? "border-[#E6B65C]"
+                : "border-transparent opacity-60"
+            }`}
+        >
+          {token === "BNB" && <SiBinance className="text-yellow-400" />}
+          {token === "ETH" && <SiEthereum className="text-blue-400" />}
+          {token === "SOL" && <SiSolana className="text-purple-400" />}
+          {token}
         </button>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+
     </div>
 
     {/* You Pay */}
@@ -302,9 +390,42 @@ const BuyNowPage = () => {
       <p className="text-m text-[#FFCC66]">You Pay</p>
       <div className="neoBorder !rounded-[5px]">
         <div className="neoCard flex items-center gap-3 px-4 py-3 !rounded-[5px]">
-          <span className="flex items-center gap-2 text-sm">
-            <img src={usd} className="w-8 h-6" />
-          </span>
+
+        <div className="relative">
+  {/* Selected Token */}
+  <button
+    onClick={() => setPayOpen(!payOpen)}
+    className="flex items-center gap-2"
+  >
+    {tokens.find(t => t.key === activeToken)?.icon}
+    <FaChevronDown
+      className={`text-xs transition ${
+        payOpen ? "rotate-180" : ""
+      }`}
+    />
+  </button>
+
+  {/* Dropdown */}
+  {payOpen && (
+    <div className="absolute left-0 top-full mt-2 w-28 neoCard border border-[#E6B65C] rounded-lg z-50">
+      {tokens.map((token) => (
+        <button
+          key={token.key}
+          onClick={() => {
+            setActiveToken(token.key);
+            setPayOpen(false);
+          }}
+          className="w-full flex items-center gap-2 px-3 py-2 hover:bg-[#1a1a1a]"
+        >
+          {token.icon}
+          <span className="text-sm">{token.label}</span>
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+
 
           <input
             type="text"
@@ -446,31 +567,33 @@ const BuyNowPage = () => {
 
  <div className="relative inline-block">
       {/* Button */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="neoCard !Poppins text-s px-6 py-3 rounded-full flex items-center justify-center gap-2"
-      >
-        {selected}
-        <span className={`transition ${open ? "rotate-180" : ""}`}>▼</span>
-      </button>
+    <button
+  onClick={() => setPeriodOpen(!periodOpen)}
+  className="neoCard !Poppins text-s px-6 py-3 rounded-full flex items-center gap-2"
+>
+  {selected}
+  <span className={`transition ${periodOpen ? "rotate-180" : ""}`}>▼</span>
+</button>
 
-      {/* Dropdown */}
-      {open && (
-        <div className="absolute right-0 mt-2 w-48 rounded-xl neoCard bg-black border border-zinc-700 overflow-hidden z-50">
-          {options.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setSelected(item);
-                setOpen(false);
-              }}
-              className="w-full text-left px-4 py-3 text-sm text-white hover:bg-zinc-800 transition"
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-      )}
+{periodOpen && (
+  <div className="absolute right-0 mt-2 w-48 rounded-xl neoCard bg-black border border-zinc-700 z-50">
+    {options.map((item, i) => (
+      <button
+        key={i}
+        onClick={() => {
+          setSelected(item);
+          setPeriodOpen(false);
+        }}
+        className="w-full text-left px-4 py-3 text-sm text-white hover:bg-zinc-800"
+      >
+        {item}
+      </button>
+    ))}
+  </div>
+)}
+
+
+
     </div>
 
     </div>
