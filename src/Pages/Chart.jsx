@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactApexChart from "react-apexcharts";
+import ref from "../assets/images/ref.png";
 export const Chart = () => {
     const referralBarData = [
     { month: "Jan", value: 220 },
@@ -44,6 +45,8 @@ const referralBarChart = {
     chart: {
       type: "bar",
       toolbar: { show: false },
+      background: "#000000",
+      
     },
 
     plotOptions: {
@@ -61,7 +64,7 @@ const referralBarChart = {
         shade: "light",
         type: "horizontal", // 270deg feel ke liye
         shadeIntensity: 0,
-        gradientToColors: ["#2659F2"],
+        gradientToColors: ["#997A3D"],
         inverseColors: false,
         opacityFrom: 1,
         opacityTo: 1,
@@ -69,7 +72,7 @@ const referralBarChart = {
       },
     },
 
-    colors: ["#001D76"],
+    colors: ["#FFCC66"],
 
     dataLabels: {
       enabled: false,
@@ -90,7 +93,7 @@ const referralBarChart = {
       categories: referralBarData.map(d => d.month),
       labels: {
         style: {
-          colors: "#000000",
+          colors: "#DBDBDB",
         },
       },
     },
@@ -101,7 +104,8 @@ const referralBarChart = {
       tickAmount: 4,
       labels: {
         style: {
-          colors: "#000000",
+          colors: "#DBDBDB",
+
         },
       },
     },
@@ -122,35 +126,69 @@ const referralAreaChart = {
     chart: {
       type: "area",
       toolbar: { show: false },
+      background: "transparent",
     },
-    stroke: {
-      curve: "smooth",
-      width: 3,
-    },
+
+   stroke: {
+  curve: "smooth",
+  width: 1,
+  colors: ["#000000"], 
+},
+
+
+  
     fill: {
       type: "gradient",
       gradient: {
+        shadeIntensity: 0,
         opacityFrom: 0.6,
         opacityTo: 0,
+        stops: [0, 100],
+        colorStops: [
+          {
+            offset: 0,
+            color: "#FFCC66",
+            opacity: 0.8,
+          },
+          {
+            offset: 100,
+            color: "#FFFFFF",
+            opacity: 0,
+          },
+        ],
       },
     },
-    colors: ["#2563EB"],
-    dataLabels: { enabled: false },
-    grid: {
-      strokeDashArray: 6,
+
+    colors: ["#FFCC66"],
+
+    dataLabels: {
+      enabled: false,
     },
+
    
+    grid: {
+      show: false,
+    },
+
+ 
     xaxis: {
       categories: referralAreaData.map(d => d.month),
-      labels: { style: { colors: "#000000" } },
+      labels: { show: false },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+      tooltip: { enabled: false },
     },
+
     yaxis: {
-      min: 100,
-      max: 500,
-      tickAmount: 4,
+      show: false,
+    },
+
+    tooltip: {
+      theme: "dark",
     },
   },
 };
+
 
   return (
 
@@ -161,77 +199,97 @@ const referralAreaChart = {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
     
       {/* LEFT : REFERRALS BAR */}
-      <div className=" rounded-xl">
-        <div className="neoCard p-5 rounded-xl">
+      <div className=" neoBorder rounded-xl">
+        <div className="neoCard px-4 py-3 rounded-xl">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-[1.4rem] font-bold text-[#000]">
+            <h3 className="text-[1.4rem] font-bold text-[#FFFFFF]">
               Referrals : 0
             </h3>
     
-          <div
-      className="flex gap-3 text-sm text-[#000000] rounded-lg px-3 py-2"
-      style={{
-        boxShadow: `
-          6px 6px 11.4px 0px #0000002E,
-          2px 2px 8.5px -5px #3E3E3EE5 inset,
-          -2px -2px 4px 0px #00000040 inset
-        `,
-      }}
-    >
-      <span>1M</span>
-      <span>6M</span>
-      <span>1Y</span>
-    
-      <select className="bg-transparent outline-none">
-        <option>2025</option>
-      </select>
-    </div>
+         
+         
+        <div
+  className="flex gap-3 text-sm rounded-lg px-3 py-1 bg-[#FFCC66]"
+  style={{
+    boxShadow: `
+      6px 6px 11.4px 0px #0000002E,
+      2px 2px 8.5px -5px #3E3E3EE5 inset,
+      -2px -2px 4px 0px #00000040 inset
+    `,
+  }}
+>
+  <span className="bg-[#FFCC66] text-black  py-1 rounded-md font-medium">
+    1M
+  </span>
+
+  <span className="bg-[#FFCC66] text-black  py-1 rounded-md font-medium">
+    6M
+  </span>
+
+  <span className="bg-[#FFCC66] text-black  py-1 rounded-md font-medium">
+    1Y
+  </span>
+
+  <select className="bg-[#FFCC66] text-black  py-1 rounded-md outline-none font-medium">
+    <option>2025</option>
+  </select>
+</div>
+
+
           </div>
     
+
           <ReactApexChart
             options={referralBarChart.options}
             series={referralBarChart.series}
             type="bar"
-            height={240}
+            height={262}
+
+            
           />
+
+
         </div>
       </div>
+
+
+
+      
     
       {/* RIGHT : REFERRALS INCOME */}
       <div className=" rounded-xl">
-        <div className="neoCard p-5 rounded-xl">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-bold text-[#000]">
-              Referrals Income &nbsp; 0.00 URBN
+         <div className="p-[1px] mb-4 rounded-xl
+                      bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
+      
+        <div className="flex items-center justify-between px-3 py-2 rounded-xl
+                        bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]">
+      
+          <div className="flex items-center gap-3">
+            <img src={ref} alt="tokenomic" className="w-5 h-5" />
+            <h3 className="text-lg font-bold text-white open-sans">
+             Reffral Income
             </h3>
-    
-            <div
-      className="flex gap-3 text-sm text-[#000000] rounded-lg px-3 py-2"
-      style={{
-        boxShadow: `
-          6px 6px 11.4px 0px #0000002E,
-          2px 2px 8.5px -5px #3E3E3EE5 inset,
-          -2px -2px 4px 0px #00000040 inset
-        `,
-      }}
-    >
-      <span>1M</span>
-      <span>6M</span>
-      <span>1Y</span>
-    
-      <select className="bg-transparent outline-none">
-        <option>2025</option>
-      </select>
-    </div>
-    
           </div>
+      
+          <button className="text-xl text-gray-400 hover:text-white">
+            ⋮
+          </button>
+      
+        </div>
+      </div>
+
+      
+      <div className='neoBorder'>
+        <div className="neoCard rounded-xl">
+        
     
           <ReactApexChart
             options={referralAreaChart.options}
             series={referralAreaChart.series}
             type="area"
-            height={240}
+            height={274}
           />
+        </div>
         </div>
       </div>
     

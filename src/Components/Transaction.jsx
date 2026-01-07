@@ -92,53 +92,121 @@ const Transaction = ({ trxData, datatype }) => {
     
 <div className="flex justify-end items-center gap-3 mb-4">
   {/* Search Bar */}
-  <div className="relative w-[200px] neoCard !rounded-[8px] ">
-    <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+  
+ <div
+  className="
+    relative w-[200px] p-[1px] !rounded-[8px]
+    bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]
+  "
+>
+  <div
+    className="
+      relative flex items-center !rounded-[8px]
+      border border-[#FFCC66]
+      bg-[#000000]
+    "
+  >
+    <span className="absolute left-3 text-[#B7B7B7]">
       <FiSearch size={16} />
     </span>
+
     <input
       type="text"
       placeholder="Search"
-      className="pl-10 pr-3 py-2 !rounded-[8px] border border-gray-300 focus:outline-none focus:ring-1 focus:ring-[#2659F2] text-sm text-[#B7B7B7] open-sans w-full"
+      className="
+        w-full pl-10 pr-3 py-2 !rounded-[8px]
+        bg-transparent
+        text-[#B7B7B7] placeholder-[#B7B7B7]
+        text-sm open-sans
+        focus:outline-none
+      "
     />
   </div>
+</div>
+
+  
 
   {/* Date Filter */}
-  <div className="relative neoCard">
+<div className="relative">
+ 
+  <div
+    className="
+      inline-block p-[1px] rounded-[8px]
+      bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]
+    "
+  >
     <button
       onClick={() => setOpenDate(!openDate)}
-      className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm text-[#525252]"
+      className="
+        flex items-center gap-2 px-4 py-2 rounded-[8px]
+        border border-[#FFCC66]
+        bg-[#000000]
+        text-sm text-[#B7B7B7] open-sans
+        focus:outline-none
+      "
     >
-      Select date
+     date
       <FiChevronDown size={16} />
     </button>
+  </div>
 
-    {openDate && (
-      <div className="neoCard absolute top-[170%] right-0 w-[200px] bg-white border border-[#2659F2] rounded-lg p-4 shadow-lg z-50">
+  
+  {openDate && (
+    <div
+      className="
+        absolute top-[170%] right-0 w-[220px] p-[1px] z-50 rounded-[10px]
+        bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]
+      "
+    >
+      <div
+        className="
+          rounded-[10px] p-4
+          border border-[#FFCC66]
+          bg-[#000000]
+        "
+      >
+        {/* Start Date */}
         <div className="relative mb-3">
           <input
             type="text"
             placeholder="Start Date"
             onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")}
-            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg text-sm placeholder:text-[#525252] text-[#525252] focus:outline-none"
+            className="
+              w-full pl-4 pr-10 py-2 rounded-[8px]
+              bg-transparent
+              border border-[#FFCC66]
+              text-sm text-[#B7B7B7] placeholder-[#B7B7B7]
+              focus:outline-none
+            "
           />
-          <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
+          <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-[#B7B7B7]" />
         </div>
 
+        {/* End Date */}
         <div className="relative">
           <input
             type="text"
             placeholder="End Date"
             onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")}
-            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg text-sm placeholder:text-[#525252] text-[#525252] focus:outline-none"
+            className="
+              w-full pl-4 pr-10 py-2 rounded-[8px]
+              bg-transparent
+              border border-[#FFCC66]
+              text-sm text-[#B7B7B7] placeholder-[#B7B7B7]
+              focus:outline-none
+            "
           />
-          <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
+         <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-[#B7B7B7]" />
         </div>
       </div>
-    )}
-  </div>
+    </div>
+  )}
+</div>
+
+
+
 </div>
 
 
@@ -154,24 +222,35 @@ const Transaction = ({ trxData, datatype }) => {
                 <div className="relative overflow-x-auto shadow-md   ">
                     <table className="w-full text-sm text-left  ">
                         <thead className="text-xs text-[var(--text-secondry )]  bg-gray-900 neoCard">
-                            <tr className='font-bold text-sm tracking-wider' >
-                                <th scope="col" className="px-6 py-3 text-nowrap text-[1.25rem] !text-[#363636] ">No</th>
-                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#2659F2]">Amount</th>
-                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#363636]">Adress</th>
-                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#2659F2]">USD Value</th>
-                                <th scope="col" className="px-6 py-3 text-[1.25rem] !text-[#363636]"> Date </th>
-                            </tr>
+                            <tr className="font-bold tracking-wider text-xs sm:text-sm">
+  <th scope="col" className="px-3 sm:px-6 py-2 sm:py-3 text-nowrap text-sm sm:text-base lg:text-[1.25rem] !text-[#FFCC66]">
+    No
+  </th>
+  <th scope="col" className="px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base  lg:text-[1.25rem] !text-[#FFCC66]">
+    Amount
+  </th>
+  <th scope="col" className="px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base r lg:text-[1.25rem] !text-[#FFCC66]">
+    Address
+  </th>
+  <th scope="col" className="px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base  lg:text-[1.25rem] !text-[#FFCC66]">
+    USD Value
+  </th>
+  <th scope="col" className="px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base  lg:text-[1.25rem] !text-[#FFCC66]">
+    Date
+  </th>
+</tr>
+
                         </thead>
                         <tbody>
                             {currentPageData.map((row, index) => (
                                 <>
                                     <tr
                                         key={index}
-                                        className="bg-[#FFFDFD]  "
+                                        className="bg-[#000000]  "
                                     >
-                                        <td className="px-6 py-4 text-[#363636] open-sans">{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                                        <td className="px-6 py-4 text-[#FFFFFF] open-sans">{(currentPage - 1) * itemsPerPage + index + 1}</td>
 
-                                        <td   className="px-6 py-4 text-[#2659F2] ">
+                                        <td   className="px-6 py-4 text-[#FFCC66] ">
                                             <div className='relative flex gap-2'>
                                                 
                                                 <p className='cursor-pointer'>
@@ -180,7 +259,7 @@ const Transaction = ({ trxData, datatype }) => {
                                                 </p>
                                             </div>
                                         </td>
-                                        <td onClick={() => handleCopyAddress(row[1], index, "col1")} className="px-6 py-4 text-[#363636] ">
+                                        <td onClick={() => handleCopyAddress(row[1], index, "col1")} className="px-6 py-4 text-[#FFFFFF] ">
                                             <div className='relative flex gap-2'>
                                                 {/* <CgCopy
                                                     className={`text-lg active:scale-[0.8] transition-all ease-in-out ${copyStatus[`${index}-col1`] ? "text-green-500" : "text-white"
@@ -192,7 +271,7 @@ const Transaction = ({ trxData, datatype }) => {
                                             </div>
                                         </td>
 
-                                        <td onClick={() => handleCopyAddress(row[2], index, "col2")} className="px-6 py-4 26680394850 text-[#2659F2] ">
+                                        <td onClick={() => handleCopyAddress(row[2], index, "col2")} className="px-6 py-4 26680394850 text-[#FFCC66] ">
                                             <div className='relative flex gap-2'>
                                                 <CgCopy
                                                     className={`text-lg active:scale-[0.8] transition-all ease-in-out ${copyStatus[`${index}-col2`] ? "text-green-500" : "text-white"
@@ -207,7 +286,7 @@ const Transaction = ({ trxData, datatype }) => {
                                         {/* <td className="px-6 py-4 text-white text-nowrap ">$ {row[1]}</td> */}
                                         {/* <td className="px-6 py-4 text-[var(--golden-txt1)] text-nowrap font-bold ">$ {row[2]}</td> */}
 
-                                        <td className="px-6 py-4 text-[#363636]">
+                                        <td className="px-6 py-4 text-[#FFFFFF]">
                                             {row[3]}
                                             {/* {typeof row[3] === 'number' ? row[3].toFixed(5) : parseFloat(row[3]).toFixed(5)} */}
 

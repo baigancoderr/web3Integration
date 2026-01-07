@@ -9,6 +9,8 @@
     import dash_last from "../assets/images/dash-last.png";
 import walletIcon from "../assets/images/wallet.png";
 import tokenomicIcon from "../assets/images/tokenomic.png";
+import wall from "../assets/images/wall.png";
+import ref from "../assets/images/ref.png";
 import tokenomicChart from "../assets/images/tokenomic-chart.png";
 import ReactApexChart from "react-apexcharts";
 
@@ -69,7 +71,7 @@ const referralBarChart = {
     plotOptions: {
       bar: {
         borderRadius: 6,
-        borderRadiusApplication: "around", // 👈 top + bottom dono
+        borderRadiusApplication: "around", 
         columnWidth: "50%",
       },
     },
@@ -79,7 +81,7 @@ const referralBarChart = {
       type: "gradient",
       gradient: {
         shade: "light",
-        type: "horizontal", // 270deg feel ke liye
+        type: "horizontal", 
         shadeIntensity: 0,
         gradientToColors: ["#2659F2"],
         inverseColors: false,
@@ -174,7 +176,7 @@ const referralAreaChart = {
 
 
 
-        const referralLink = "https://Urban.io/?referrer=0x59d6e3CbF411bbe9a1b184fghf ";
+        const referralLink = "https://moxcoin.io/?referre";
 
         const handleCopy = () => {
             navigator.clipboard.writeText(referralLink);
@@ -192,7 +194,7 @@ const referralAreaChart = {
                 <div className="space-y-10">
 
                   
-                 <div className="neoBorder rounded-[2px]">
+                 {/* <div className="neoBorder rounded-[2px]">
               <div className="neoCard flex md:gap-0 gap-4 md:flex-row flex-col-reverse justify-between rounded-[2px] p-6 bg">
                 <div className="md:w-[70%]  ">
                    
@@ -227,21 +229,21 @@ const referralAreaChart = {
                     </div>
                 </div>
             </div>
-</div>
+</div> */}
 
 
 
 
                     <div className="     ">
-                        {/* Header */}
-                        <div className="mb-5">
+                        
+                        {/* <div className="mb-5 ">
                             <h2 className="text-2xl md:text-3xl     text-gradient w-fit  open-sans ">
                                 Portfolio Dashboard
                             </h2>
                             <p className="text-[#363636] mt-1 open-sans font-bold">
                                 Track your investments and referral rewards in real-time.
                             </p>
-                        </div>
+                        </div> */}
 
 
 
@@ -249,72 +251,86 @@ const referralAreaChart = {
                         
 
                         {/* Cards */}
-                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+         {/* OUTER WRAPPER */}
+<div className="p-6 pt-16 rounded-[10px] bg-black shadow-[0px_0px_5px_0px_#FFCC66]">
 
-  {/* Card 1 */}
-  <div className="neoBorder rounded-xl h-full">
-    <div className="neoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-md neoCard">
-            <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    {/* Card 1 */}
+    <div className=" rounded-xl h-full">
+      <div className="hovNeoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between ">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            {/* <div className="p-2 rounded-md neoCard">
+              <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
+            </div> */}
+            <h3 className="text-[#525252] text-lg "> Total Net Profit</h3>
           </div>
-          <h3 className="text-[#2659F2] text-lg open-sans">Urban Coin</h3>
+          <div className="text-2xl font-bold text-[#000000] mb-2 ">$60,641.61</div>
+          <p className="text-[#525252] !font-[400] text-[14px] ">
+            Gross value: $0
+          </p>
         </div>
-        <div className="text-2xl font-bold text-[#363636] mb-2">10 Urban</div>
-        <p className="text-[var(--text-secondry)] text-sm open-sans">Estimated value: $0</p>
       </div>
     </div>
-  </div>
 
-  {/* Card 2 */}
-  <div className="neoBorder rounded-xl h-full">
-    <div className="neoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-md neoCard">
-            <FaTag className="text-[var(--golden-txt1)] text-2xl" />
+    {/* Card 2 */}
+     <div className=" rounded-xl h-full">
+      <div className="hovNeoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            {/* <div className="p-2 rounded-md neoCard">
+              <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
+            </div> */}
+            <h3 className="text-[#525252] text-lg Inter"> Total Net Profit</h3>
           </div>
-          <h3 className="text-[#2659F2] text-lg open-sans">Token Price</h3>
+          <div className="text-2xl font-bold text-[#000000] mb-2">$10,000.61</div>
+          <p className="text-[#525252] !font-[400] text-[14px] !Inter">
+            Gross value: $0
+          </p>
         </div>
-        <div className="text-2xl font-bold text-[#363636] mb-2">$0.0005</div>
-        <p className="text-[var(--text-secondry)] text-sm open-sans">Current price at launch</p>
       </div>
     </div>
-  </div>
 
-  {/* Card 3 */}
-  <div className="neoBorder rounded-xl h-full">
-    <div className="neoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-md neoCard">
-            <FaPercentage className="text-[var(--golden-txt1)] text-2xl" />
+    {/* Card 3 */}
+     <div className=" rounded-xl h-full">
+      <div className="hovNeoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            {/* <div className="p-2 rounded-md neoCard">
+              <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
+            </div> */}
+            <h3 className="text-[#525252] text-lg Inter"> Total Net Profit</h3>
           </div>
-          <h3 className="text-[#2659F2] text-lg open-sans">Earning Percentage</h3>
+          <div className="text-2xl font-bold text-[#000000] mb-2">$10,000.61</div>
+          <p className="text-[#525252] !font-[400] text-[14px] !Inter">
+            Gross value: $0
+          </p>
         </div>
-        <div className="text-2xl font-bold text-[#363636] mb-2">5% Bonus</div>
-        <p className="text-[var(--text-secondry)] text-sm open-sans">Enhanced rewards active</p>
       </div>
     </div>
-  </div>
 
-  {/* Card 4 */}
-  <div className="neoBorder rounded-xl h-full">
-    <div className="neoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-md neoCard">
-            <FaPercentage className="text-[var(--golden-txt1)] text-2xl" />
+    {/* Card 4 */}
+     <div className=" rounded-xl h-full">
+      <div className="hovNeoCard px-5 py-4 rounded-xl h-full flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            {/* <div className="p-2 rounded-md neoCard">
+              <FaCoins className="text-[var(--golden-txt1)] text-2xl" />
+            </div> */}
+            <h3 className="text-[#525252] text-lg Inter"> Total Net Profit</h3>
           </div>
-          <h3 className="text-[#2659F2] text-lg open-sans">USD Bonus</h3>
+          <div className="text-2xl font-bold text-[#000000] mb-2">$10,000.61</div>
+          <p className="text-[#525252] !font-[400] text-[14px] !Inter">
+            Gross value: $0
+          </p>
         </div>
-        <div className="text-2xl font-bold text-[#363636] mb-2">10 Urban</div>
-        <p className="text-[var(--text-secondry)] text-sm open-sans">Estimated value:  $0</p>
       </div>
     </div>
+
   </div>
-  </div>
+</div>
+
 
 </div>
 
@@ -323,143 +339,231 @@ const referralAreaChart = {
 
 
 
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
-
-<div className="lg:col-span-2 rounded-xl overflow-hidden">
-
-  <div className="flex items-center justify-between px-5 py-3 bg-[#E8E8E8] mb-4">
-    <div className="flex items-center gap-3">
-     
-      <img
-  src={transactionIcon}
-  alt="transaction"
-  className="w-6 h-6"
-/>
-      <h3 className="text-lg font-bold text-[#000000] open-sans font-bold">
-        My Transaction
-      </h3>
-    </div>
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 ">
 
   
-    <button className="text-xl text-gray-600 hover:text-black">
-      ⋮
-    </button>
+
+<div className="lg:col-span-2 rounded-xl overflow-hidden
+                shadow-[0px_0px_4px_0px_#FFCC66] bg-black px-5">
+
+  {/* HEADING */}
+  <div className="px-5 py-4">
+    <h2 className="text-[#FFCC66] text-[1.3rem] font-[600] mb-[10px]">
+      Balance History
+    </h2>
+    <p className="text-sm text-gray-400">
+     Recent deposits, withdrawals, and balance changes
+    </p>
   </div>
 
   {/* TABLE */}
-  <div className="neoCard ">
-    <div className="overflow-x-auto">
-      <table className="min-w-[500px] w-full text-sm">
-        <tbody className="text-[#2659F2]">
-          {[
-            ["01", "5.5 K URB", "0x55d6...e253", "$500", "01/06/2025"],
-            ["02", "6.2 K URB", "0x12f4...bbf7", "$750", "01/07/2025"],
-            ["03", "7.0 K URB", "0x7a0d...c123", "$600", "01/08/2025"],
-            ["04", "8.1 K URB", "0x3bca...dc45", "$820", "01/09/2025"],
-            ["05", "9.3 K URB", "0x4f77...c678", "$950", "01/10/2025"],
-             ["06", "6.2 K URB", "0x12f4...bbf7", "$750", "01/07/2025"],
-            ["07", "7.0 K URB", "0x7a0d...c123", "$600", "01/08/2025"],
-            ["08", "8.1 K URB", "0x3bca...dc45", "$820", "01/09/2025"],
-          
-          ].map((row, i) => (
-            <tr key={i} className="border-b last:border-none">
-              <td className="py-4 px-5 text-[#000000] font-bold">{row[0]}</td>
-              <td className="font-semibold">{row[1]}</td>
-              <td className="text-gray-500">{row[2]}</td>
-              <td className="font-semibold">{row[3]}</td>
-              <td className="text-gray-500">{row[4]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <div className="overflow-x-auto">
+    <table className="min-w-[500px] w-full text-sm border-collapse">
 
+      {/* TABLE HEAD */}
+      <thead>
+        <tr className="text-[#FFFFFF] Inter">
+          <th className="py-3 px-5 text-center shadow-[inset_0_-1px_0_0_#FFCC66]">
+            Date
+          </th>
+          <th className="py-3 px-5 text-center shadow-[inset_0_-1px_0_0_#FFCC66]">
+            Type
+          </th>
+          <th className="py-3 px-5 text-center shadow-[inset_0_-1px_0_0_#FFCC66]">
+            Amount
+          </th>
+          <th className="py-3 px-5 text-center shadow-[inset_0_-1px_0_0_#FFCC66]">
+            Balance After
+          </th>
+        </tr>
+      </thead>
+
+      {/* TABLE BODY */}
+      <tbody>
+        {[
+          ["01/06/2025", "Deposit", "$500", "$5,500"],
+          ["01/07/2025", "Withdraw", "$750", "$4,750"],
+          ["01/08/2025", "Deposit", "$600", "$5,350"],
+          ["01/09/2025", "Deposit", "$820", "$6,170"],
+           ["01/06/2025", "Deposit", "$500", "$5,500"],
+          ["01/07/2025", "Withdraw", "$750", "$4,750"],
+          ["01/08/2025", "Deposit", "$600", "$5,350"],
+      
+        ].map((row, i) => (
+          <tr key={i} className="text-white text-center">
+
+            {/* DATE */}
+            <td className="py-4 px-5 text-gray-400">
+              {row[0]}
+            </td>
+
+            {/* TYPE */}
+           <td className="px-5">
+  <div
+    className={`inline-block px-3 py-1 rounded-[25px] text-sm font-semibold
+      ${row[1] === "Deposit"
+        ? "bg-[#FFCC66] text-[#000000]"
+        : "bg-[#FDECEC] text-red-500"}`}
+  >
+    {row[1]}
+  </div>
+</td>
+
+            
+
+            {/* AMOUNT */}
+            <td className="px-5 text-[#076C2F]">
+              {row[2]}
+            </td>
+
+            {/* BALANCE (HIGHLIGHT DIV) */}
+            <td className="px-5">
+              
+                <span className="text-[#525252] font-bold">
+                  {row[3]}
+                </span>
+             
+            </td>
+
+          </tr>
+        ))}
+      </tbody>
+
+    </table>
+  </div>
 </div>
+
+
+
 
 
   {/* RIGHT : WALLET + TOKENOMIC */}
  <div className="flex flex-col gap-6">
 
+  <div className="rounded-xl overflow-hidden">
+
+   
+    <div className="p-[1px] mb-4 rounded-xl
+                bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
+
+  <div className="flex items-center justify-between px-5 py-3 rounded-xl
+                  bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]">
+
+    <div className="flex items-center gap-3">
+      <img src={tokenomicIcon} alt="tokenomic" className="w-6 h-6" />
+      <h3 className="text-lg font-bold text-white open-sans">
+        Tokenomic
+      </h3>
+    </div>
+
+    <button className="text-xl text-gray-400 hover:text-white">
+      ⋮
+    </button>
+
+  </div>
+</div>
+
+
+   
+    {/* <div>
+  <div className="neoCard rounded-b-xl p-5">
+    <img
+      src={tokenomicChart}
+      alt="tokenomic chart"
+      className="w-full h-auto object-contain"
+    />
+  </div>
+</div> */}
+<div
+  className="p-[1px] rounded-b-xl
+             bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
+
+  <div
+    className="neoCard rounded-b-xl p-5
+               shadow-[inset_0px_4px_4px_0px_#2C4AEC0F,_0px_4px_4px_0px_#00000017]">
+
+    <img
+      src={tokenomicChart}
+      alt="tokenomic chart"
+      className="w-full h-auto object-contain"
+    />
+
+  </div>
+</div>
+
+
+
+</div>
+
  
   <div className="rounded-xl overflow-hidden">
     
   
-    <div className="flex items-center justify-between px-5 py-3 bg-[#E8E8E8] mb-4">
-      <div className="flex items-center gap-3">
-        <img src={walletIcon} alt="wallet" className="w-6 h-6" />
-        <h3 className="text-lg font-bold text-[#000000] open-sans">
-          Your Wallet
-        </h3>
-      </div>
-      <button className="text-xl text-gray-600 hover:text-black">⋮</button>
+    <div className="p-[1px] mb-4 rounded-xl
+                bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
+
+  <div className="flex items-center justify-between px-5 py-3 rounded-xl
+                  bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]">
+
+    <div className="flex items-center gap-3">
+      <img src={wall} alt="tokenomic" className="w-6 h-6" />
+      <h3 className="text-lg font-bold text-white open-sans">
+        Your Wallet
+      </h3>
     </div>
+
+    <button className="text-xl text-gray-400 hover:text-white">
+      ⋮
+    </button>
+
+  </div>
+</div>
 
     
-    <div className="">
-      <div className="neoCard rounded-b-xl p-5">
-        <p className="text-sm text-gray-500 mb-1">Total balance</p>
 
-        <div className="flex justify-between items-center mb-4">
-          <span className="text-2xl font-bold text-[#363636]">
-            $124,442.00
-          </span>
-          <span className="text-green-500 text-sm bg-green-100 px-2 py-1 rounded">
-            +1,423.00
-          </span>
-        </div>
-             
-          <div className="border-t pt-4 flex justify-between  items-center">
-        <div className="text-sm text-gray-500">
-          Exchange
-          <div className="font-semibold text-[#2659F2] mt-1">
-            1 URB = $24,.00
-          </div>
-          
-          </div>
+    
+    <div
+  className="p-[1px] rounded-b-xl
+             bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
 
+  <div
+    className="neoCard rounded-b-xl p-5
+               shadow-[inset_0px_4px_4px_0px_#2C4AEC0F,_0px_4px_4px_0px_#00000017]">
+
+    <p className="text-sm text-[#FFFFFF] mb-2">
+      Total balance
+    </p>
+
+    <div className="flex justify-between items-center mb-4">
+      <span className="text-2xl font-bold text-[#FFFFFF]">
+        $124,442.00
+      </span>
+
+      <span className="text-green-600 text-sm
+                       bg-green-100 px-2 py-1 rounded">
+        +1,423.00
+      </span>
+    </div>
+
+    <div className="pt-4 flex justify-between items-center
+                    shadow-[inset_0_1px_0_0_#FFCC66]/40">
+      <div className="text-sm text-[#FFFFFF]">
+        Exchange
+        <div className="font-semibold text-[#FFCC66] mt-1">
+          1 MOX = $24.00
         </div>
       </div>
     </div>
-  </div>
-
-  {/* TOKENOMIC */}
-  <div className="rounded-xl overflow-hidden">
-
-   
-    <div className="flex items-center justify-between px-5 py-3 bg-[#E8E8E8] mb-4">
-      <div className="flex items-center gap-3">
-        <img src={tokenomicIcon} alt="tokenomic" className="w-6 h-6" />
-        <h3 className="text-lg font-bold text-[#000000] open-sans">
-          Tokenomic
-        </h3>
-      </div>
-      <button className="text-xl text-gray-600 hover:text-black">⋮</button>
-    </div>
-
-   
-    <div className="">
-      <div className="neoCard rounded-b-xl p-5">
-        <div className="flex justify-evenly items-center">
-          <div className="space-y-2 text-sm text-[#2659F2]">
-            <p>Exchange</p>
-            <p>Exchange</p>
-            <p>Exchange</p>
-            <p>Exchange</p>
-          </div>
-
-          
-          <img
-  src={tokenomicChart}
-  alt="tokenomic chart"
-  className="w-28 h-28 object-contain"
-/>
-
-        </div>
-      </div>  
-    </div>
 
   </div>
+</div>
+
+
+
+  </div>
+
+ 
+  
 
 </div>
 </div>
@@ -479,24 +583,27 @@ const referralAreaChart = {
  
 <div className="lg:col-span-2 rounded-xl overflow-hidden">
 
-  <div className="flex items-center justify-between px-5 py-3 bg-[#E8E8E8] ">
+ <div className="p-[1px]  rounded-xl
+                bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
+
+  <div className="flex items-center justify-between px-5 py-3 rounded-xl
+                  bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]">
+
     <div className="flex items-center gap-3">
-     
-      <img
-  src={dash_last}
-  alt="transaction"
-  className="w-6 h-6"
-/>
-      <h3 className="text-lg  text-[#000000] open-sans font-[800]">
-        Start Your Referral Journey
+      <img src={ref} alt="tokenomic" className="w-6 h-6" />
+      <h3 className="text-lg font-bold text-white open-sans">
+        Start Your Refferal Journey
       </h3>
     </div>
 
-  
-    <button className="text-xl text-gray-600 hover:text-black">
+    <button className="text-xl text-gray-400 hover:text-white">
       ⋮
     </button>
+
   </div>
+</div>
+
+
   </div>
 
                   <div className="neoBorder rounded-xl h-full">
@@ -506,41 +613,38 @@ const referralAreaChart = {
                         <div className="flex flex-col w-full  items-center md:items-start  ">
 
                            
-                            <p className="text-center md:text-left mb-5 text-xl font-bold
-  bg-gradient-to-r from-[#001D76] to-[#2659F2]
-  bg-clip-text text-transparent">
-  Invite friends and earn 5% commission on their purchases.
-  Building wealth together!
-</p>
+                         
 
 
                             {/* Referral Link */}
-                            <p className="text mb-2 text-[#363636]  font-bold">
+                          <p className="text mb-2 text-[#FFFFFF] ">
                                 Your Referral Link
                             </p>
 
-                           
-                            <div className="flex items-center w-full neoCard px-4 py-2 rounded-lg mb-8 shadow-inner">
-                                <input
-                                    type="text"
-                                    readOnly
-                                    value={referralLink}
-                                    className="bg-transparent text-[#000000] text-[1.1rem]  font-[400] underline w-full outline-none"
-                                />
-                                <button
-                                    onClick={handleCopy}
-                                    className="ml-2 p-2 hovNeoCard hover:bg-[var(--golden-txt1)]/10 rounded-md"
-                                >
-                                    <LuCopy className="text-[var(--golden-txt1)] text-lg" />
-                                </button>
-                            </div>
-                            
+                          <div className="neoBorder w-full rounded-lg p-[1px] mb-8">
+  <div className="flex items-center w-full neoCard px-4 py-2 rounded-lg">
+    <input
+      type="text"
+      readOnly
+      value={referralLink}
+      className="bg-transparent text-[#FFCC66] text-[1.1rem]
+                 font-[400] underline w-full outline-none"
+    />
+
+    <button
+      onClick={handleCopy}
+      className="ml-2 p-2 hovNeoCard
+                 hover:bg-[var(--golden-txt1)]/10 rounded-md"
+    >
+      <LuCopy className="text-[var(--golden-txt1)] text-lg" />
+    </button>
+  </div>
+</div>
+
 
                             {/* Social Share */}
                             <div>
-                                        <p className="text-center md:text-left mb-5 text-m font-bold
-  bg-gradient-to-r from-[#001D76] to-[#2659F2]
-  bg-clip-text text-transparent">
+                                        <p className="text-center md:text-left mb-5 text-m  text-[#FFFFFF]">
  share with friends
 </p>
 
@@ -570,7 +674,7 @@ const referralAreaChart = {
   <img
     src={referralImg}
     alt="Referral"
-    className="w-full max-w-[500px] mx-auto "
+    className="w-full max-w-[350px] mx-auto "
   />
   </div>
                         

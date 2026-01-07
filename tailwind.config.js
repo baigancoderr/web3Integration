@@ -13,6 +13,9 @@ export default {
         'desktop': { 'max': '1200px' },
 
       },
+        backgroundImage: {
+    goldGradient: 'linear-gradient(148.88deg, #FFCC66 25.71%, #997A3D 69.65%)',
+  },
     },
   },
   plugins: [],

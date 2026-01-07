@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 
-import logo from "../assets/logo/Urban-logo.png";
+import logo from "../assets/logo/mox-logo.png";
+
 import { MdDashboard, MdNotificationsNone } from "react-icons/md";
 
-import icon from "../assets/logo/Urban-main-logo.png"
+import icon from "../assets/logo/User.png"
+
 import { Link } from "react-router-dom";
 import { IoMdLogOut } from "react-icons/io";
 import { GiDiamonds, GiTakeMyMoney } from "react-icons/gi";
@@ -48,7 +50,7 @@ const SideNav = () => {
     return (
         <>
             <div className=" Gregular   ">
-                <div className="   neoCard   py-1   fixed w-full z-[10] flex gap-5">
+                <div className="   neoCard   py-1   fixed w-full z-[10] flex gap-5 ">
                     <button
                         aria-controls="default-sidebar"
                         type="button"
@@ -74,13 +76,13 @@ const SideNav = () => {
                     <div className="   flex  justify-end w-full   px-2 sm:px-8 py-1 tablet:ml-0">
                         <div className="flex   items-center gap-10">
 
-                             <div className="rounded-full p-[5px] neoCard ">
+                             <div className="rounded-full p-[5px] !bg-[#FFFFFF]">
                                 <img src={icon} className="w-8 h-fit " alt="" />
                             </div>
-                            <div className="flex text-right flex-col">
-                                <p className="sm:text-base text-sm text-[#000000] font-[500]" >  Name</p>
-                                {/* <p className="font-light text-sm  text-gray-400 ">Admin number 2</p> */}
-                            </div>
+                            {/* <div className="flex text-right flex-col">
+                                <p className="sm:text-base text-sm text-[#FFCC66] font-[500]" >  Name</p>
+                               
+                            </div> */}
 
                            
 
@@ -122,8 +124,9 @@ const SideNav = () => {
                             <BiArrowBack />{" "}
                         </div>
 
-                        <div className="h-full    hide-scrollbar bg-[#FFFFFF]">
-                            <div className="  rounded-br-2xl mb-10 py-3 neoCard">
+                       <div className="h-full hide-scrollbar bg-page-gradient">
+
+                            <div className="  rounded-br-2xl mb-10 py-3 ">
                                 <img className="w-[10rem] mx-auto" src={logo} alt="" />
                             </div>
                             <ul className="space-y-6 px-7 py-4 font-medium">
@@ -131,11 +134,11 @@ const SideNav = () => {
                                     <Link
                                         to="/"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group  ]"
+                                        className="flex items-center p-2 pl-[20px]  hovNeoCard !rounded-[25px] text-[var(--text-primary)]  space-x-3  group  ]"
                                     >
                                         <MdDashboard className="text-2xl text-[var(--golden-txt1)]  " />
-                                        <span className=" Gregular  text-lg text-gradient font-bold  ">
-                                            Home
+                                        <span className=" Gregular  text-lg text-gradient font-bold   ">
+                                            Dashboard
                                         </span>
                                     </Link>
                                 </li>
@@ -143,7 +146,7 @@ const SideNav = () => {
                                     <Link
                                         to="/buytoken"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
+                                        className="flex items-center p-2 pl-[20px]  hovNeoCard !rounded-[25px] text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <GiTakeMyMoney className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -155,7 +158,7 @@ const SideNav = () => {
                                     <Link
                                         to="/referral"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
+                                        className="flex items-center p-2 pl-[20px] hovNeoCard !rounded-[25px] text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <LiaShareAltSolid className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -169,7 +172,7 @@ const SideNav = () => {
                                             e.stopPropagation(); // 🛑 prevent parent from closing sidebar
                                             setOpenTransaction(!openTransaction);
                                           }}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
+                                        className="flex items-center p-2 pl-[20px] hovNeoCard !rounded-[25px] text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <GrTransaction className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -184,9 +187,9 @@ const SideNav = () => {
                                             }`}
                                     >
                                         <div className="flex ml-1 gap-3 my-5">
-                                            <div className="relative border-2 border-dashed border-[var(--border-color2)]">
-                                                <GiDiamonds className="text-[var(--golden-txt1)] absolute bottom-full left-1/2 transform -translate-x-1/2" />
-                                                <GiDiamonds className="text-[var(--golden-txt1)] absolute top-full left-1/2 transform -translate-x-1/2" />
+                                            <div className="relative border-2 border-dashed border-[#FFCC66]">
+                                                <GiDiamonds className="text-[)] absolute bottom-full left-1/2 transform -translate-x-1/2" />
+                                                <GiDiamonds className="text-[] absolute top-full left-1/2 transform -translate-x-1/2" />
                                             </div>
 
                                             <div className="flex flex-col gap-3">
@@ -197,10 +200,10 @@ const SideNav = () => {
                                                     onClick={closeSidebar}
                                                     className=" rounded-md px-2 py-1 relative inline-block group cursor-pointer text-[var(--text-primary)]"
                                                 >
-                                                    <span className="relative z-10 font-bold text-gradient text-lg">My Transaction</span>
+                                                    <span className="relative z-10 font-bold text-gold-gradienttt text-lg">My Transaction</span>
 
                                                     <span
-                                                        className="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--golden-txt1)] transition-all duration-300 group-hover:w-full"
+                                                        className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFFFFF] transition-all duration-300 group-hover:w-full"
 
                                                     ></span>
                                                 </Link>
@@ -209,10 +212,10 @@ const SideNav = () => {
                                                     onClick={closeSidebar}
                                                     className=" rounded-md px-2 py-1 relative inline-block group cursor-pointer text-[var(--text-primary)]"
                                                 >
-                                                    <span className="relative z-10 font-bold text-gradient text-lg">Live Transaction</span>
+                                                    <span className="relative z-10 font-bold text-gold-gradienttt text-lg">Live Transaction</span>
 
                                                     <span
-                                                        className="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--golden-txt1)] transition-all duration-300 group-hover:w-full"
+                                                        className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFFFFF] transition-all duration-300 group-hover:w-full"
 
                                                     ></span>
                                                 </Link>
@@ -229,7 +232,7 @@ const SideNav = () => {
                                     <Link
                                         to="/profile"
                                         onClick={closeSidebar}
-                                        className="flex items-center p-2  hovNeoCard rounded-lg text-[var(--text-primary)]  space-x-3  group ]"
+                                        className="flex items-center p-2  pl-[20px] hovNeoCard !rounded-[25px] text-[var(--text-primary)]  space-x-3  group ]"
                                     >
                                         <FaRegCircleUser className="text-2xl text-[var(--golden-txt1)]  " />
                                         <span className=" Gregular  text-lg text-gradient font-bold ">
@@ -246,7 +249,7 @@ const SideNav = () => {
     className="flex flex-col items-center text-center p-4 mt-28 hovNeoCard rounded-lg"
   >
     {/* Wallet Image */}
-    <div className="p-3 mb-2 bg-[#2659F2] flex items-center justify-center !rounded-[5px]">
+    <div className="p-3 mb-2 bg-[#000000] flex items-center justify-center !rounded-[5px]">
   <img
     src={walletIcon}
     alt="Wallet"

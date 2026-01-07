@@ -1,6 +1,7 @@
 import { FaCopy, FaFacebookF, FaTelegramPlane, FaWhatsapp,FaPaperPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { toast } from "react-toastify";
+import ref from "../assets/images/ref.png";
 import ameriIcon from "../assets/images/ameriIcon.webp"
 import { Chart } from "./Chart";
    import { FaPercentage } from 'react-icons/fa';
@@ -13,7 +14,7 @@ import ref1 from "../assets/Refrall/ref1.png"
 import ref2 from "../assets/Refrall/ref2.png"
 
 const ReferralPage = () => {
-    const referralLink = "https://Urban.io/?referrer=0x59d6e3CbF411bbe9a1b184fghf ";
+    const referralLink = "https://moxcoin.io/?referre ";
 
         const handleCopy = () => {
             navigator.clipboard.writeText(referralLink);
@@ -31,8 +32,9 @@ const ReferralPage = () => {
     <div className="">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-        {/* LEFT CARD */}
-                   <div className="neoCard py-6 px-7 !rounded-[10px] "
+        {/* LEFT CARD */} 
+        <div className="neoBorder !rounded-[10px]">
+                   <div className="h-full neoCard py-6 px-7 !rounded-[10px] "
   style={{
     boxShadow: `
       6px 6px 11.4px 0px #0000002E,
@@ -41,8 +43,8 @@ const ReferralPage = () => {
     `,
   }}
 > 
-         <h2 className="text-xl !font-[600] mb-5 open-sans text-[#000000] text-center">
-  Urban – The AI-Powered Wealth Network
+         <h2 className="text-xl !font-[600] text-gold-gradienttt  mb-5 open-sans  text-center">
+  Mox – The AI-Powered Wealth Network
 </h2>
 
             <div
@@ -55,36 +57,36 @@ const ReferralPage = () => {
     `,
   }}
 >
-          <p className="text-[#363636] text-[14px] mb-2 !font-[500]">
-            Urban is not just a referral platform — it’s an intelligent,
+          <p className=" text-[14px] mb-2 !font-[500]">
+            Mox is not just a referral platform — it’s an intelligent,
             decentralized wealth ecosystem powered by AI-driven arbitrage
             strategies designed for consistent and scalable growth.
           </p>
 
           <div className="space-y-5 text-gray-700">
             <div>
-              <h4 className="font-semibold  mb-1 text-[#000000] tracking-[0.5px]">Instant Earnings</h4>
-              <p className="text-sm">
+              <h4 className="font-semibold  mb-1 text-gold-gradienttt  tracking-[0.5px]">Instant Earnings</h4>
+              <p className="text-sm text-[#FFFFFF]">
                 Earn up to 10% instant rewards on every successful signup
-                through your Urban referral link — payouts are fast,
+                through your Mox referral link — payouts are fast,
                 transparent, and automated.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-1 text-[#000000] tracking-[0.5px]">Smart Compounded Growth</h4>
-              <p className="text-sm">
-                As your Urban network expands, your participation in the
+              <h4 className="font-semibold mb-1 text-gold-gradienttt  tracking-[0.5px]">Smart Compounded Growth</h4>
+              <p className="text-sm text-[#FFFFFF]">
+                As your Mox network expands, your participation in the
                 AI-managed arbitrage profit pool increases, enabling
                 compounding returns over time.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-1 text-[#000000] tracking-[0.5px]">
+              <h4 className="font-semibold mb-1 text-gold-gradienttt  tracking-[0.5px]">
                 Sustainable & Stable Returns
               </h4>
-              <p className="text-sm">
+              <p className="text-sm text-[#FFFFFF]">
                 All rewards are backed by real arbitrage trading profits,
                 ensuring long-term sustainability — not hype or speculation.
               </p>
@@ -92,9 +94,11 @@ const ReferralPage = () => {
           </div>
           </div>
         </div>
+        </div>
 
         {/* RIGHT CARD */}
-                 <div className="neoCard py-6 px-7 !rounded-[10px] "
+        <div className="neoBorder !rounded-[10px]">
+                 <div className="neoCard h-full py-6 px-7 !rounded-[10px] "
   style={{
     boxShadow: `
       6px 6px 11.4px 0px #0000002E,
@@ -103,12 +107,12 @@ const ReferralPage = () => {
     `,
   }}
 >
-           <h2 className="text-xl !font-[600] mb-5 open-sans text-[#000000] text-center">
+           <h2 className="text-xl !font-[600] mb-5 open-sans text-gold-gradienttt  text-center">
  Invite & Earn – How It Works
 </h2>
 
-          <p className="text-[#525252] text-[14px] mb-8 !font-[500]">
-            Urban RWA rewards you for growing the ecosystem with instant
+          <p className=" text-[14px] mb-8 !font-[500]">
+           Mox rewards you for growing the ecosystem with instant
             bonuses and ongoing profit-sharing opportunities. Every new
             participant you onboard strengthens the AI arbitrage engine —
             while boosting your income.
@@ -119,12 +123,12 @@ const ReferralPage = () => {
               {
                 step: "01",
                 title: "Join the Program",
-                desc: "Sign up as an Urban RWA Affiliate and start earning instantly.",
+                desc: "Sign up as an Mox Affiliate and start earning instantly.",
               },
               {
                 step: "02",
                 title: "Invite Others",
-                desc: "Share your referral link and bring new investors into the $URBAN ecosystem.",
+                desc: "Share your referral link and bring new investors into the $Mox ecosystem.",
               },
               {
                 step: "03",
@@ -138,20 +142,21 @@ const ReferralPage = () => {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-500 text-[#000000] font-semibold">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#FFCC66] font-semibold">
                   {item.step}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gradient">
+                  <h4 className="font-semibold text-gold-gradienttt ">
                     {item.title}
                   </h4>
-                  <p className="text-[14px] text-[#525252] !font-[500]">
+                  <p className="text-[14px] text-[#FFFFFF] !font-[500]">
                     {item.desc}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
         </div>
 
       </div>
@@ -162,27 +167,25 @@ const ReferralPage = () => {
 {/* Sabse Niche wala Part  */}
 
 
-<div className="lg:col-span-2 rounded-xl overflow-hidden my-8 ">
-
-  <div className="flex items-center justify-between px-5 py-3 bg-[#E8E8E8] ">
-    <div className="flex items-center gap-3">
-     
-      <img
-  src={ok}
-  alt="transaction"
-  className="w-6 h-6"
-/>
-      <h3 className="text-lg  text-[#000000] open-sans font-[800]">
-        Start Your Referral Journey
-      </h3>
-    </div>
-
-  
-    <button className="text-xl text-gray-600 hover:text-black">
-      ⋮
-    </button>
-  </div>
-  </div>
+<div className="p-[1px] my-6 rounded-xl
+                      bg-[linear-gradient(148.88deg,#997A3D_25.71%,#FFCC66_69.65%)]">
+      
+        <div className="flex items-center justify-between px-3 py-2 rounded-xl
+                        bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]">
+      
+          <div className="flex items-center gap-3">
+            <img src={ref} alt="tokenomic" className="w-5 h-5" />
+            <h3 className="text-lg font-bold text-white open-sans">
+             Reffral Income
+            </h3>
+          </div>
+      
+          <button className="text-xl text-gray-400 hover:text-white">
+            ⋮
+          </button>
+      
+        </div>
+      </div>
 
                   <div className="neoBorder rounded-xl h-full">
 
@@ -192,15 +195,14 @@ const ReferralPage = () => {
 
                            
                             <p className="text-center md:text-left mb-5 text-xl font-bold
-  bg-gradient-to-r from-[#001D76] to-[#2659F2]
-  bg-clip-text text-transparent">
+text-gold-gradienttt ">
   Invite friends and earn 5% commission on their purchases.
   Building wealth together!
 </p>
 
 
                             {/* Referral Link */}
-                            <p className="text mb-2 text-[#363636]  font-bold">
+                            <p className="text mb-2 text-[#FFFFFF]  ">
                                 Your Referral Link
                             </p>
 
@@ -210,7 +212,7 @@ const ReferralPage = () => {
                                     type="text"
                                     readOnly
                                     value={referralLink}
-                                    className="bg-transparent text-[#000000] text-[1.1rem]  font-[400] underline w-full outline-none"
+                                    className="bg-transparent text-[#FFCC66] text-[1.1rem]  font-[400] underline w-full outline-none"
                                 />
                                 <button
                                     onClick={handleCopy}
@@ -223,9 +225,8 @@ const ReferralPage = () => {
 
                             {/* Social Share */}
                             <div>
-                                        <p className="text-center md:text-left mb-5 text-m font-bold
-  bg-gradient-to-r from-[#001D76] to-[#2659F2]
-  bg-clip-text text-transparent">
+                                        <p className="text-center md:text-left mb-5 text-m font-bold text-gold-gradienttt
+ ">
  share with friends
 </p>
 
@@ -277,23 +278,24 @@ const ReferralPage = () => {
         
         {/* Left Content */}
         <div>
-          <h2 className="text-blue-700 !text-[1.3rem] md:text-2xl font-semibold mb-4">
-            Urban DeFi Yield Initiative
+          <h2 className="text-[#FFCC66] !text-[1.3rem] md:text-2xl font-semibold mb-4">
+            Mox DeFi Yield Initiative
           </h2>
 
-          <h4 className="text-gray-900 font-semibold mb-2">
-            Stake Your Tokens, Fuel the Urban Ecosystem
+          <h4 className="text-[#997A3D] font-semibold mb-2">
+            Stake Your Tokens, Fuel the Mox Ecosystem
           </h4>
 
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Join the Urban DeFi Yield Initiative to earn steady rewards
+          <p className="text-[#FFFFFF] text-sm leading-relaxed">
+            Join the MoxCoin Initiative to earn steady rewards
             while boosting the ecosystem. Our referral network gives
             early supporters instant bonuses and ongoing profit sharing.
           </p>
         </div>
 
         {/* Card 1 */}
-        <div className="bg-white rounded-xl shadow-lg p-4"
+        <div className="neoBorder !rounded-xl">
+        <div className="bg-[#000000] !rounded-xl shadow-lg p-4"
              style={{
     boxShadow: `
       6px 6px 11.4px 0px #0000002E,
@@ -304,7 +306,7 @@ const ReferralPage = () => {
   
   {/* Top Row */}
   <div className="flex items-center justify-between mb-2">
-    <h3 className="font-semibold text-[#000000] text-[1.2rem] max-w-[145px]   ">
+    <h3 className="font-semibold text-[#FFFFFF] text-[1.2rem] max-w-[145px]   ">
       Earn Daily Passive Income
     </h3>
 
@@ -316,16 +318,18 @@ const ReferralPage = () => {
   </div>
 
   {/* Description */}
-  <p className="text-[#363636] text-[1.1rem] !font-[500] leading-relaxed">
+  <p className="text-[#FFFFFF] text-[1.1rem] !font-[300] leading-relaxed">
     Get instant referral bonuses and share in profits from
     network deposits.
   </p>
 
 </div>
+</div>
 
 
         {/* Card 2 */}
-        <div className="bg-white rounded-xl shadow-lg p-4"      style={{
+         <div className="neoBorder !rounded-xl">
+        <div className="bg-[#000000] !rounded-xl shadow-lg p-4"      style={{
     boxShadow: `
       6px 6px 11.4px 0px #0000002E,
       2px 2px 8.5px -5px #3E3E3EE5 inset,
@@ -335,7 +339,7 @@ const ReferralPage = () => {
   
   {/* Top Row */}
   <div className="flex items-center justify-between mb-2">
-    <h3 className="font-semibold text-[#000000] text-[1.2rem] max-w-[145px]   ">
+    <h3 className="font-semibold text-[#FFFFFF] text-[1.2rem] max-w-[145px]   ">
       Enjoy Daily Passive Income
     </h3>
 
@@ -347,10 +351,11 @@ const ReferralPage = () => {
   </div>
 
   {/* Description */}
-  <p className="text-[#363636] text-[1.1rem] !font-[500] leading-relaxed">
+  <p className="text-[#FFFFFF] text-[1.1rem] !font-[300] leading-relaxed">
   Unlock instant referral bonuses and profit sharing from network contributions.
   </p>
 
+</div>
 </div>
 
       </div>

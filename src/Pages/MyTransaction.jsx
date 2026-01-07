@@ -4,10 +4,18 @@ import transactionIcon from "../assets/images/dash-trans-logo.png";
 const MyTransaction = () => {
   const data = {
     transaction: [
-      ['123k URB', "0x88df989sf", '$500', '3/7/2025'],
-      ['123k URB', "0x88df989sf", '$700', '3/7/2025'],
-      ['123k URB', "0x88df989sf", '$200', '3/7/2025'],
-      ['123k URB', "0x88df989sf", '$750', '3/7/2025'],
+      ['123k ', "0x88df989sf", '$500', '3/7/2025'],
+      ['123k ', "0x88df989sf", '$700', '3/7/2025'],
+      ['123k ', "0x88df989sf", '$200', '3/7/2025'],
+      ['123k ', "0x880x88df989sf0x88df989sfdf989sf", '$750', '3/7/2025'],
+       ['123k ', "0x88df989sf", '$500', '3/7/2025'],
+      ['123k ', "0x88df989sf", '$700', '3/7/2025'], 
+      ['123k ', "0x88df989sf", '$200', '3/7/2025'],
+      ['123k ', "0x880x88df989sf0x88df989sfdf989sf", '$750', '3/7/2025'],
+       ['123k ', "0x88df989sf", '$500', '3/7/2025'],
+      ['123k ', "0x88df989sf", '$700', '3/7/2025'],
+      ['123k ', "0x88df989sf", '$200', '3/7/2025'],
+      ['123k ', "0x880x88df989sf0x88df989sfdf989sf", '$750', '3/7/2025'],
     ],
   };
 
@@ -16,7 +24,13 @@ const MyTransaction = () => {
   return (
     <>
       {/* Header */}
-     <div className="flex flex-wrap items-center justify-between px-5 py-3 bg-[#E8E8E8] mb-4 gap-3 !rounded-[8px]">
+<div
+  className="
+    flex flex-wrap items-center justify-between
+    px-5 py-3 mb-4 gap-3 !rounded-[8px]
+    bg-[linear-gradient(180deg,#363636_0%,#000000_100%)]
+  "
+>
 
  
   <div className="flex items-center gap-4">
@@ -25,10 +39,10 @@ const MyTransaction = () => {
       alt="transaction"
       className="w-6 h-6"
     />
-    <h3 className="text-lg font-bold text-[#000000] open-sans">
+    <h3 className="text-lg font-bold text-[#FFFFFF] open-sans">
       My Transaction
     </h3>
-   <span className="text-[#2659F2] font-[400] hidden sm:inline">
+   <span className="text-[#FFCC66] font-[400] hidden sm:inline">
   (Transaction Details)
 </span>
 

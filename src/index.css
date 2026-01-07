@@ -5,14 +5,19 @@
 :root {
   --primary-bg:#222222;
   
-  --secondry-bg:#303030;
+  --secondry-bg:#ca1414;
 
- 
-  --text-gradient: linear-gradient(270deg, #001D76 2.27%, #2659F2 95.35%);
+  --page-bg-gradient: linear-gradient(180deg, #000000 0%, #363636 100%);
+
+  --btn-bg-grad:  linear-gradient(148.88deg, #997A3D 25.71%, #FFCC66 69.65%);
+
+  
+
+  --text-gradient: #000000;
 
   --text-primary:#0000008e;
   --text-secondry:#363636;
-  --golden-txt1:#001D76;
+  --golden-txt1:#000000;
 
   --border-color1: #001D76;
   --border-color2: #2659F2;
@@ -51,6 +56,13 @@
 .Gbold {
   font-family: Gbold;
 }
+.Poppins {
+  font-family: Poppins;
+}
+.Inter {
+  font-family: Inter;
+}
+
 .Glight {
   font-family: Glight;
 }
@@ -62,10 +74,10 @@
 }
 
 p {
-  font-family: Gregular;
+  font-family: Inter;
 }
 h3 {
-  font-family: Gsemibold;
+  font-family: Inter;
 }
 h1 {
   font-family: Gsemibold;
@@ -81,7 +93,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #ffffff;
+  background:linear-gradient(180deg, #000000 0%, #363636 100%);
   color: white;
   overflow-x: hidden;
   font-family: sfPro;
@@ -106,20 +118,33 @@ body {
 
 
 .neoCard {
-  background: #ffffff;
-box-shadow:
-  6px 6px 11.4px 0px #0000002E,
-  -2px -2px 8.5px -5px #3E3E3EE5 inset;
+ 
+  background: linear-gradient(180deg, #000000 0%, #363636 100%);
+ 
+box-shadow: 0px 4px 4px 0px #2C4AEC0F ,
+ 0px 4px 4px 0px #00000017 inset;
 
 
-  
 }
+
+.neoCard1 {
+ 
+  background: #000000;
+ 
+box-shadow: 0px 4px 4px 0px #2C4AEC0F ,
+ 0px 4px 4px 0px #00000017 inset;
+
+
+}
+
 
 .neoBorder {
   position: relative;
   padding: 1px; 
   border-radius: 16px; 
-  background: linear-gradient(270deg, #001D76 2.27%, #2659F2 95.35%);
+  background: linear-gradient(148.88deg, #997A3D 25.71%, #FFCC66 69.65%);
+
+
 }
 
 .neoBorder > .neoCard {
@@ -129,19 +154,15 @@ box-shadow:
 
 
 .hovNeoCard {
-  background: #FFFFFF;
-  box-shadow:
-  6px 6px 11.4px 0px #0000002E,
-  2px 2px 8.5px -5px #3E3E3EE5 inset,
-  -2px -2px 4px 0px #00000040 inset;
+  background: #FFCC66;
+ 
 
 }
 .hovNeoCard:hover {
-  fill: #222;
+ 
   box-shadow:
-    8px 8px 16px 0px #0000003A,
-    3px 3px 10px -4px #3E3E3EE5 inset,
-    -3px -3px 6px 0px #00000050 inset;
+    -3px -3px 7px 1px #FFFFFF inset,
+     2px  2px 5px 1px #B8B9BE inset;
 
 }
 
@@ -159,3 +180,29 @@ box-shadow:
   display: none; /* Chrome, Safari, Opera */
 }
 
+.bg-page-gradient {
+  background: var(--page-bg-gradient);
+}
+
+@layer utilities {
+  .text-gold-gradienttt {
+    @apply bg-goldGradient bg-clip-text text-transparent;
+  }
+}
+
+@media (max-width: 1100px) {
+  .custom-responsive {
+    flex-direction: column !important;
+  }
+}
+
+/* Chrome, Edge, Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(75%) sepia(0%) saturate(0%) hue-rotate(180deg);
+  cursor: pointer;
+}
+
+/* Firefox (limited support, still safe) */
+input[type="date"] {
+  color-scheme: dark;
+}
