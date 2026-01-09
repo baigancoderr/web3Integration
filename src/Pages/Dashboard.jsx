@@ -1,4 +1,5 @@
 
+    import { useState, useEffect } from 'react';
     import { FaPercentage } from 'react-icons/fa';
     import { FaCoins, FaTag } from 'react-icons/fa6';
     import { FaPaperPlane, FaWhatsapp, FaXTwitter, FaFacebookF } from "react-icons/fa6";
@@ -16,11 +17,18 @@ import ReactApexChart from "react-apexcharts";
 
   import referralImg from "../assets/images/ref_img.png";
 import { Chart } from './Chart';
+import MoxLogin from './MoxLogin';
 
 
 
 
       const Dashboard = () => {
+  const [showLoginPopup, setShowLoginPopup] = useState(true);
+
+  useEffect(() => {
+    // Show login popup when dashboard loads
+    setShowLoginPopup(true);
+  }, []);
 
   
   const referralBarData = [
@@ -176,7 +184,7 @@ const referralAreaChart = {
 
 
 
-        const referralLink = "https://moxcoin.io/?referre";
+        const referralLink = "https://mgxcoin.io/?referre";
 
         const handleCopy = () => {
             navigator.clipboard.writeText(referralLink);
@@ -189,6 +197,15 @@ const referralAreaChart = {
 
         return (
             <>
+                {/* MoxLogin Popup Overlay */}
+                {showLoginPopup && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center">
+                        <div onClick={() => setShowLoginPopup(false)}>
+                            <MoxLogin />
+                        </div>
+                    </div>
+                )}
+
                 {/* alrady wraped in main container  */}
 
                 <div className="space-y-10">
@@ -498,7 +515,7 @@ const referralAreaChart = {
       <div className="text-sm text-[#FFFFFF]">
         Exchange
         <div className="font-semibold text-[#FFCC66] mt-1">
-          1 MOX = $24.00
+          1 MGX = $24.00
         </div>
       </div>
     </div>

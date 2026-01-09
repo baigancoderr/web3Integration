@@ -276,10 +276,10 @@ const [payOpen, setPayOpen] = useState(false);
 >
     <div className="   text-center space-y-2">
       <h2 className="text-xl open-sans text-gold-gradienttt">
-        Moxcoin
+        Mgxcoin
       </h2>
       <p className="text-lg text-[#FFFFFF] !mb-5">
-        Grab The Deal Buy Now Moxcoin
+        Grab The Deal Buy Now Mgxcoin
       </p>
     </div>
 
@@ -447,7 +447,7 @@ const [payOpen, setPayOpen] = useState(false);
 
           <input
             type="text"
-            placeholder="Enter MOXCOIN Amount"
+            placeholder="Enter MGXCOIN Amount"
             className="bg-transparent outline-none w-full text-sm"
           />
         </div>
@@ -505,7 +505,7 @@ const [payOpen, setPayOpen] = useState(false);
         <div className="neoBorder">
         <div className="rounded-2xl h-full  Poppins neoCard p-8 bg-gradient-to-br from-black via-zinc-900 to-black">
           <h2 className="text-white text-2xl  mb-6">
-            How to Grab Moxcoin
+            How to Grab Mgxcoin
           </h2>
 
           <ul className="space-y-5 text-sm">
@@ -514,7 +514,7 @@ const [payOpen, setPayOpen] = useState(false);
                 • Connect Your Wallet
               </h4>
               <p className="text-gray-300 mt-1 pl-3">
-                Seamlessly connect your crypto wallet to the MOXCOIN platform
+                Seamlessly connect your crypto wallet to the MGXCOIN platform
                 to start your purchase journey.
               </p>
             </li>
@@ -544,7 +544,7 @@ const [payOpen, setPayOpen] = useState(false);
                 • Receive Your Tokens
               </h4>
               <p className="text-gray-300 mt-1 pl-3">
-                Your MOXCOIN tokens will be instantly credited to your MOXCOIN
+                Your MGXCOIN tokens will be instantly credited to your MGXCOIN
                 dashboard.
               </p>
             </li>

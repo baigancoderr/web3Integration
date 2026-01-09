@@ -153,9 +153,9 @@ const ProfilePage = () => {
 </div>
 
 
-                      <h3 className="text-[#FFFFFF] text-lg open-sans">MOXCOIN</h3>
+                      <h3 className="text-[#FFFFFF] text-lg open-sans">MGXCOIN</h3>
                     </div>
-                    <div className="text-[1.2rem] !font-bold text-[#FFCC66] mb-2">10 MOX</div>
+                    <div className="text-[1.2rem] !font-bold text-[#FFCC66] mb-2">10 MGX</div>
                     <p className="text-[#FFFFFF] text-sm open-sans">Estimated value: $0</p>
                   </div>
                 </div>

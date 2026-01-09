@@ -14,7 +14,7 @@ import { LiaShareAltSolid } from "react-icons/lia";
 import { GrTransaction } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { LuUserRound } from "react-icons/lu";
- import walletIcon from  "../assets/images/sidenavbt.png"
+ import walletIcon from  "../assets/images/sidenavbt1.png"
 
 
 

@@ -14,7 +14,7 @@ import ref1 from "../assets/Refrall/ref1.png"
 import ref2 from "../assets/Refrall/ref2.png"
 
 const ReferralPage = () => {
-    const referralLink = "https://moxcoin.io/?referre ";
+    const referralLink = "https://mgxcoin.io/?referre ";
 
         const handleCopy = () => {
             navigator.clipboard.writeText(referralLink);
@@ -44,7 +44,7 @@ const ReferralPage = () => {
   }}
 > 
          <h2 className="text-xl !font-[600] text-gold-gradienttt  mb-5 open-sans  text-center">
-  Mox – The AI-Powered Wealth Network
+  Mgx – The AI-Powered Wealth Network
 </h2>
 
             <div
@@ -58,7 +58,7 @@ const ReferralPage = () => {
   }}
 >
           <p className=" text-[14px] mb-2 !font-[500]">
-            Mox is not just a referral platform — it’s an intelligent,
+            Mx is not just a referral platform — it’s an intelligent,
             decentralized wealth ecosystem powered by AI-driven arbitrage
             strategies designed for consistent and scalable growth.
           </p>
@@ -68,7 +68,7 @@ const ReferralPage = () => {
               <h4 className="font-semibold  mb-1 text-gold-gradienttt  tracking-[0.5px]">Instant Earnings</h4>
               <p className="text-sm text-[#FFFFFF]">
                 Earn up to 10% instant rewards on every successful signup
-                through your Mox referral link — payouts are fast,
+                through your Mgx referral link — payouts are fast,
                 transparent, and automated.
               </p>
             </div>
@@ -76,7 +76,7 @@ const ReferralPage = () => {
             <div>
               <h4 className="font-semibold mb-1 text-gold-gradienttt  tracking-[0.5px]">Smart Compounded Growth</h4>
               <p className="text-sm text-[#FFFFFF]">
-                As your Mox network expands, your participation in the
+                As your Mgx network expands, your participation in the
                 AI-managed arbitrage profit pool increases, enabling
                 compounding returns over time.
               </p>
@@ -112,7 +112,7 @@ const ReferralPage = () => {
 </h2>
 
           <p className=" text-[14px] mb-8 !font-[500]">
-           Mox rewards you for growing the ecosystem with instant
+           Mgx rewards you for growing the ecosystem with instant
             bonuses and ongoing profit-sharing opportunities. Every new
             participant you onboard strengthens the AI arbitrage engine —
             while boosting your income.
@@ -123,12 +123,12 @@ const ReferralPage = () => {
               {
                 step: "01",
                 title: "Join the Program",
-                desc: "Sign up as an Mox Affiliate and start earning instantly.",
+                desc: "Sign up as an Mgx Affiliate and start earning instantly.",
               },
               {
                 step: "02",
                 title: "Invite Others",
-                desc: "Share your referral link and bring new investors into the $Mox ecosystem.",
+                desc: "Share your referral link and bring new investors into the $Mgx ecosystem.",
               },
               {
                 step: "03",
@@ -279,15 +279,15 @@ text-gold-gradienttt ">
         {/* Left Content */}
         <div>
           <h2 className="text-[#FFCC66] !text-[1.3rem] md:text-2xl font-semibold mb-4">
-            Mox DeFi Yield Initiative
+            Mgx DeFi Yield Initiative
           </h2>
 
           <h4 className="text-[#997A3D] font-semibold mb-2">
-            Stake Your Tokens, Fuel the Mox Ecosystem
+            Stake Your Tokens, Fuel the Mgx Ecosystem
           </h4>
 
           <p className="text-[#FFFFFF] text-sm leading-relaxed">
-            Join the MoxCoin Initiative to earn steady rewards
+            Join the MgxCoin Initiative to earn steady rewards
             while boosting the ecosystem. Our referral network gives
             early supporters instant bonuses and ongoing profit sharing.
           </p>
