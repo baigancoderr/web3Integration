@@ -4,11 +4,11 @@ import { Chart } from "react-google-charts";
     import { FaCoins, FaTag } from 'react-icons/fa6';
     import { FaPaperPlane, FaWhatsapp, FaXTwitter, FaFacebookF } from "react-icons/fa6";
       import { FaPercentage } from 'react-icons/fa';
-      import profile1 from "../assets/profile/profile1.png"; 
+      import profile1 from "../assets/profile/profile7.png"; 
         import profile2 from "../assets/profile/profile2.png"; 
           import profile3 from "../assets/profile/profile3.png"; 
             import profile4 from "../assets/profile/profile4.png"; 
-            import profile5 from "../assets/profile/profile5.png"; 
+            import profile5 from "../assets/profile/profile6.png"; 
 
 const ProfilePage = () => {
     const referralCode = "abcdefghijklmnoopqrs";

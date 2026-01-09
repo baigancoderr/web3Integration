@@ -1,5 +1,5 @@
 import React from "react";
-import moxLogo from "../assets/logo/Mox-main-logo.png";
+import moxLogo from "../assets/logo/mgx-login.png";
 
 const MoxLogin = () => {
   return (

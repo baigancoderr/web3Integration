@@ -442,7 +442,7 @@ const [payOpen, setPayOpen] = useState(false);
       <div className="neoBorder !rounded-[5px]">
         <div className="neoCard flex items-center gap-3 px-4 py-3 !rounded-[5px]">
           <span className="flex items-center gap-2 text-sm">
-            <img src={MOX} className="w-7 h-6" />
+            <img src={MOX} className="w-9 h-8" />
           </span>
 
           <input
