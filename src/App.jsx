@@ -1,5 +1,5 @@
 import React from 'react';
-import { lazy, useEffect } from 'react'
+import { lazy, useEffect, useState } from 'react'
 import { Suspense } from 'react'
 import PropTypes from 'prop-types';
 
@@ -12,6 +12,7 @@ const ReferralPage = lazy(() => import('./Pages/ReferralPage'))
 const ProfilePage = lazy(() => import('./Pages/ProfilePage'))
 const MyTransaction = lazy(() => import('./Pages/MyTransaction'))
 const LiveTransactions = lazy(() => import('./Pages/LiveTransactions'))
+const MoxLogin = lazy(() => import('./Pages/MoxLogin'))
 
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import SideNav from './Components/SideNav';
@@ -76,11 +77,11 @@ const ScrollToTop = () => {
   return null;
 };
 
-const MainLayout = ({ children }) => (
+const MainLayout = ({ children, onLogout }) => (
   <div className='flex flex-col mx-auto min-w-screen max-w-[1600px]'>
     <Suspense fallback={<Loader />}>
 
-      <SideNav />
+      <SideNav onLogout={onLogout} />
 
       <div className=" Gregular p-4  h-fit mt-24 ml-64 tablet:ml-0 ">
         <div className="px-8    tablet:p-0      rounded-lg   ">
@@ -98,10 +99,24 @@ const MainLayout = ({ children }) => (
 );
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  onLogout: PropTypes.func.isRequired,
 };
 
 function App() {
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
 
+  useEffect(() => {
+    const token = localStorage.getItem("mgx_token");
+    if (!token) {
+      setShowLoginPopup(true);
+    } else {
+      setShowLoginPopup(false);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setShowLoginPopup(true);
+  };
 
   return (
     <>
@@ -109,17 +124,27 @@ function App() {
         <BrowserRouter>
           <ScrollToTop />
           <ToastContainer />
+          
+          {/* MoxLogin Popup Overlay */}
+          {showLoginPopup && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+              <Suspense fallback={<Loader />}>
+                <MoxLogin onSuccess={() => setShowLoginPopup(false)} />
+              </Suspense>
+            </div>
+          )}
+          
           <Routes>
             <Route path="*" element={<Navigate to="/" />} />
-            <Route path="/" element={<MainLayout> <Dashboard />  </MainLayout>} />
-            <Route path="/buytoken" element={<MainLayout> <BuyNowPage />  </MainLayout>} />
-            <Route path="/referral" element={<MainLayout> <ReferralPage />  </MainLayout>} />
-            <Route path="/profile" element={<MainLayout> <ProfilePage />  </MainLayout>} />
-            <Route path="/mytransactions" element={<MainLayout> <MyTransaction />  </MainLayout>} />
-            <Route path="/livetransactions" element={<MainLayout> <LiveTransactions />  </MainLayout>} />
+            <Route path="/" element={<MainLayout onLogout={handleLogout}> <Dashboard />  </MainLayout>} />
+            <Route path="/buytoken" element={<MainLayout onLogout={handleLogout}> <BuyNowPage />  </MainLayout>} />
+            <Route path="/referral" element={<MainLayout onLogout={handleLogout}> <ReferralPage />  </MainLayout>} />
+            <Route path="/profile" element={<MainLayout onLogout={handleLogout}> <ProfilePage />  </MainLayout>} />
+            <Route path="/mytransactions" element={<MainLayout onLogout={handleLogout}> <MyTransaction />  </MainLayout>} />
+            <Route path="/livetransactions" element={<MainLayout onLogout={handleLogout}> <LiveTransactions />  </MainLayout>} />
 
 
-            <Route path="/l" element={<MainLayout>  <Loader />  </MainLayout>} />
+            <Route path="/l" element={<MainLayout onLogout={handleLogout}>  <Loader />  </MainLayout>} />
           </Routes>
         </BrowserRouter>
       </ErrorBoundary>

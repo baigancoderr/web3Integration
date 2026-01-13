@@ -141,19 +141,34 @@ const ReferralPage = () => {
                 desc: "As your affiliates invite others, your network expands and so does your income.",
               },
             ].map((item) => (
-              <div key={item.step} className="flex gap-4 items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#FFCC66] font-semibold">
-                  {item.step}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gold-gradienttt ">
-                    {item.title}
-                  </h4>
-                  <p className="text-[14px] text-[#FFFFFF] !font-[500]">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
+              <div
+  key={item.step}
+  className="grid grid-cols-[auto_1fr] gap-4 items-start"
+>
+  {/* Step Circle */}
+  <div
+    className="
+      grid place-items-center
+      w-11 aspect-[1/1]
+      rounded-full
+      border-2 border-[#FFCC66]
+      font-semibold
+    "
+  >
+    {item.step}
+  </div>
+
+  {/* Title + Desc */}
+  <div className="grid gap-1">
+    <h4 className="font-semibold text-gold-gradienttt">
+      {item.title}
+    </h4>
+    <p className="text-[14px] text-[#FFFFFF] font-[500]">
+      {item.desc}
+    </p>
+  </div>
+</div>
+
             ))}
           </div>
         </div>

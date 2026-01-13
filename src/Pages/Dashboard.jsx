@@ -7,7 +7,7 @@
     import { toast } from 'react-toastify';
     import { SlUserFollowing } from 'react-icons/sl';
     import transactionIcon from "../assets/images/trans-logo.png";
-   
+   import SideNav from '../Components/SideNav'; 
 import walletIcon from "../assets/images/wallet.png";
 import tokenomicIcon from "../assets/images/tokenomic.png";
 import wall from "../assets/images/wall.png";
@@ -23,12 +23,6 @@ import MoxLogin from './MoxLogin';
 
 
       const Dashboard = () => {
-  const [showLoginPopup, setShowLoginPopup] = useState(true);
-
-  useEffect(() => {
-    // Show login popup when dashboard loads
-    setShowLoginPopup(true);
-  }, []);
 
   
   const referralBarData = [
@@ -197,17 +191,6 @@ const referralAreaChart = {
 
         return (
             <>
-                {/* MoxLogin Popup Overlay */}
-                {showLoginPopup && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center">
-                        <div onClick={() => setShowLoginPopup(false)}>
-                            <MoxLogin />
-                        </div>
-                    </div>
-                )}
-
-                {/* alrady wraped in main container  */}
-
                 <div className="space-y-10">
 
                   

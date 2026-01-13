@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
+import { useAppKit } from "@reown/appkit/react";
+import { toast } from "react-toastify";
 
 import logo from "../assets/logo/mox-logo.png";
 
@@ -15,12 +17,53 @@ import { GrTransaction } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { LuUserRound } from "react-icons/lu";
  import walletIcon from  "../assets/images/sidenavbt1.png"
+ import { useNavigate } from "react-router-dom";
+ 
 
 
 
 
 
-const SideNav = () => {
+
+const SideNav = ( { onLogout }) => {
+
+   
+
+const { disconnect } = useAppKit();
+  const navigate = useNavigate();
+
+const handleLogout = async () => {
+  try {
+    // Clear storage first
+    localStorage.removeItem("mgx_token");
+    localStorage.removeItem("wagmi.store");
+    sessionStorage.clear();
+    
+    // Try to disconnect wallet (may fail if already disconnected)
+    try {
+      await disconnect();
+    } catch (disconnectErr) {
+      console.log("Wallet disconnect:", disconnectErr);
+    }
+    
+    toast.success("Successfully logged out!", {
+      position: "top-right",
+      autoClose: 2000,
+    });
+    
+    onLogout(); // Dashboard ko batao login popup show karne ke liye
+    navigate("/"); // Navigate to home to show login popup
+  } catch (err) {
+    console.error("Logout failed:", err);
+    toast.error("Logout failed. Please try again.", {
+      position: "top-right",
+      autoClose: 3000,
+    });
+  }
+};
+
+
+
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [openTransaction, setOpenTransaction] = useState(false);
@@ -90,9 +133,13 @@ const SideNav = () => {
                                 <MdNotificationsNone className="  text-2xl text-[var(----text-secondry)]" />
                                 <span className=" absolute top-0 right-0 rounded-full w-2 h-2 bg-red-600"></span>
                             </div> */}
-                            <div className=" relative rounded-full p-[5px] hovNeoCard ">
-                                <IoMdLogOut className="  text-2xl text-red-600" />
-                            </div>
+                            <div
+  onClick={handleLogout}
+  className="relative rounded-full p-[5px] hovNeoCard cursor-pointer hover:bg-red-500/10"
+>
+  <IoMdLogOut className="text-2xl text-red-600" />
+</div>
+
                         </div>
                     </div>
                 </div>

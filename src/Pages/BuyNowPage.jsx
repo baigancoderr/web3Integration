@@ -47,54 +47,6 @@ const BuyNowPage = () => {
 
 
 
-
-// const PortfolioRadialChart = () => {
-//   const options = {
-//     chart: {
-//       type: "radialBar",
-//       sparkline: { enabled: true },
-//     },
-
-//     series: [80, 60, 40],
-
-//     plotOptions: {
-//       radialBar: {
-//         startAngle: 0,
-//         endAngle: 360,
-
-//         hollow: {
-//           size: "32%", 
-//         },
-
-//         track: {
-//           background: "#FFFFFF", 
-//           strokeWidth: "3px",   
-//           opacity:1, 
-//           margin: 10,
-//         },
-
-//         dataLabels: {
-//           show: false,
-//         },
-//       },
-//     },
-
-  
-
-//     colors: ["#FFCC66", "#E6B65C", "#FFFFFF"],
-//   };
-
-//   return (
-//     <ReactApexChart
-//       options={options}
-//       series={options.series}
-//       type="radialBar"
-//       height={400}
-//     />
-//   );
-// };
-
-
   const [open, setOpen] = useState(false);
   // BUY WITH dropdown
 const [tokenOpen, setTokenOpen] = useState(false);

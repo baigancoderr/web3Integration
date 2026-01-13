@@ -1,19 +1,16 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   walletAddress: {
     type: String,
+    unique: true,
     required: true,
-    unique: true
+    lowercase: true
   },
   nonce: {
-    type: String,
-    required: true
-  },
-  role: {
-    type: String,
-    default: "user"
+    type: Number,
+    default: Math.floor(Math.random() * 1000000)
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", userSchema);
