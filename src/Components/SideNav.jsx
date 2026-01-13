@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
-import { useAppKit } from "@reown/appkit/react";
+import { useAppKit, useDisconnect } from "@reown/appkit/react";
 import { toast } from "react-toastify";
 
 import logo from "../assets/logo/mox-logo.png";
@@ -29,36 +29,47 @@ const SideNav = ( { onLogout }) => {
 
    
 
-const { disconnect } = useAppKit();
+const { open } = useAppKit();
+  const { disconnect } = useDisconnect();
   const navigate = useNavigate();
 
 const handleLogout = async () => {
   try {
-    // Clear storage first
-    localStorage.removeItem("mgx_token");
-    localStorage.removeItem("wagmi.store");
+    // Disconnect wallet first
+    await disconnect();
+    
+    // Clear all storage
+    localStorage.clear();
     sessionStorage.clear();
     
-    // Try to disconnect wallet (may fail if already disconnected)
-    try {
-      await disconnect();
-    } catch (disconnectErr) {
-      console.log("Wallet disconnect:", disconnectErr);
-    }
-    
+    // Show success message
     toast.success("Successfully logged out!", {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 1500,
     });
     
-    onLogout(); // Dashboard ko batao login popup show karne ke liye
-    navigate("/"); // Navigate to home to show login popup
-  } catch (err) {
-    console.error("Logout failed:", err);
-    toast.error("Logout failed. Please try again.", {
-      position: "top-right",
-      autoClose: 3000,
-    });
+    // Call onLogout to show login popup
+    if (onLogout) {
+      onLogout();
+    }
+    
+    // Small delay to ensure state updates, then navigate
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 100);
+  } catch (error) {
+    console.error("Logout error:", error);
+    // Even if disconnect fails, still logout
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    if (onLogout) {
+      onLogout();
+    }
+    
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 100);
   }
 };
 

@@ -2,14 +2,11 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import moxLogo from "../assets/logo/mgx-login.png";
 import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
-import axios from "axios";
-import { useSignMessage } from "wagmi";
 import toast, { Toaster } from "react-hot-toast";
 
 const MoxLogin = ({ onSuccess }) => {
   const { open } = useAppKit();
   const { address, isConnected } = useAppKitAccount();
-  const { signMessageAsync } = useSignMessage();
 
   // Prevent duplicate login calls
   const isLoggingIn = useRef(false);
@@ -19,29 +16,13 @@ const MoxLogin = ({ onSuccess }) => {
     isLoggingIn.current = true;
 
     try {
-      // 1️⃣ Get nonce from backend
-      const { data } = await axios.post("http://localhost:5000/api/auth/nonce", {
-        wallet: address,
-      });
-
-      // 2️⃣ Message MUST match backend
-      const message = `Login nonce: ${data.nonce}`;
-
-      // 3️⃣ Ask wallet to sign
-      const signature = await signMessageAsync({ message });
-
-      // 4️⃣ Verify on backend
-      const verify = await axios.post("http://localhost:5000/api/auth/verify", {
-        wallet: address,
-        signature,
-      });
-
-      // 5️⃣ Save JWT
-      localStorage.setItem("mgx_token", verify.data.token);
+      // Save wallet address as token
+      localStorage.setItem("mgx_token", address);
+      localStorage.setItem("mgx_wallet", address);
 
       toast.success("Login successful");
 
-      // 6️⃣ Close popup
+      // Close popup and go to dashboard
       onSuccess();
     } catch (err) {
       console.error("Login failed:", err);
@@ -51,13 +32,13 @@ const MoxLogin = ({ onSuccess }) => {
   };
 
   // Auto login after wallet connects (but only if no token)
-  // useEffect(() => {
-  //   const token = localStorage.getItem("mgx_token");
+  useEffect(() => {
+    const token = localStorage.getItem("mgx_token");
 
-  //   if (!token && isConnected && address) {
-  //     login();
-  //   }
-  // }, [isConnected, address]);
+    if (!token && isConnected && address) {
+      login();
+    }
+  }, [isConnected, address]);
 
   return (
     <div className="flex items-center justify-center">
@@ -82,8 +63,11 @@ const MoxLogin = ({ onSuccess }) => {
   className="w-full bg-yellow-400 hover:bg-yellow-500
   text-black font-semibold py-3 rounded-full transition"
   onClick={async () => {
-    await open();     // Connect wallet
-    await login();    // Sign & authenticate
+    if (!isConnected) {
+      await open();     // Connect wallet first
+    } else {
+      await login();    // If already connected, login
+    }
   }}
 >
   {isConnected

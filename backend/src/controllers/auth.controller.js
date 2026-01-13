@@ -35,7 +35,7 @@ exports.verifySignature = async (req, res) => {
   const token = jwt.sign(
     { id: user._id, wallet: user.walletAddress },
     process.env.JWT_SECRET,
-    { expiresIn: "7d" }
+    { expiresIn: "1d" }
   );
 
   res.json({ token, wallet });

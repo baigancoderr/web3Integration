@@ -8,6 +8,7 @@ import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 import PortfolioRadialChart from "./PortfolioRadialChart";
+import axios from "axios";
 
 
 import MOX from "../assets/BuyNow/MOX.png";
@@ -18,6 +19,8 @@ import usd from "../assets/BuyNow/usdt.png";
 import USDT from "../assets/images/usdt1.png";
 
 import Leaderboard from "../assets/images/LeaderBoard.png";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
+
 
 
 const currencies = [
@@ -38,16 +41,44 @@ const currencies = [
 
 
 const BuyNowPage = () => {
+  const { open } = useAppKit();
+const { address, isConnected } = useAppKitAccount();
+
+const [amount, setAmount] = useState("");
+const MGX_PRICE = 0.05; // same as backend dummy price
+
+
     const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const handleBuy = () => {
-        toast.success("Purchase simulated (UI only)");
-    };
+    // const handleBuy = () => {
+    //     toast.success("Purchase simulated (UI only)");
+    // };
+
+    const handleBuy = async () => {
+  if (!isConnected) return toast.error("Connect wallet first");
+  if (!amount) return toast.error("Enter amount");
+
+  const txHash = "0x" + Math.random().toString(16).slice(2); // dummy tx
+
+  await axios.post("http://localhost:5000/api/pay/buy", {
+    wallet: address,
+    amount: Number(amount),
+    token: activeToken,
+    txHash
+  });
+
+  toast.success("MGX purchased!");
+};
 
 
 
-  const [open, setOpen] = useState(false);
+
+  // const [open, setOpen] = useState(false);
+  const [buyOpen, setBuyOpen] = useState(false);
+
+
+
   // BUY WITH dropdown
 const [tokenOpen, setTokenOpen] = useState(false);
 
@@ -280,7 +311,8 @@ const [payOpen, setPayOpen] = useState(false);
     {/* ===== Small Screen : Dropdown ===== */}
     <div className="md:hidden w-full">
       <button
-        onClick={() => setOpen(!open)}
+  onClick={() => setBuyOpen(!buyOpen)}
+
         className="w-full flex items-center justify-center gap-2 px-6 py-2 rounded-lg neoCard border border-[#E6B65C]"
       >
         {activeToken === "BNB" && <SiBinance className="text-yellow-400" />}
@@ -289,14 +321,15 @@ const [payOpen, setPayOpen] = useState(false);
         {activeToken}
       </button>
 
-      {open && (
+    {buyOpen && (
+
         <div className="absolute top-full mt-2 w-full rounded-lg neoCard border border-[#E6B65C] z-50">
           {["BNB", "ETH", "SOL"].map((token) => (
             <button
               key={token}
               onClick={() => {
                 setActiveToken(token);
-                setOpen(false);
+                setBuyOpen(false);
               }}
               className="w-full flex items-center gap-2 px-4 py-2 hover:bg-[#1a1a1a]"
             >
@@ -379,11 +412,21 @@ const [payOpen, setPayOpen] = useState(false);
 
 
 
-          <input
+          {/* <input
             type="text"
             placeholder="Enter Usdt Amount"
             className="bg-transparent outline-none w-full text-sm"
-          />
+          /> */}
+
+          <input
+  value={amount}
+  onChange={(e) => setAmount(e.target.value)}
+  placeholder="Enter USDT amount"
+  className="bg-transparent outline-none w-full text-sm"
+/>
+
+
+
         </div>
       </div>
     </div>
@@ -397,11 +440,21 @@ const [payOpen, setPayOpen] = useState(false);
             <img src={MOX} className="w-9 h-8" />
           </span>
 
-          <input
+          {/* <input
             type="text"
             placeholder="Enter MGXCOIN Amount"
             className="bg-transparent outline-none w-full text-sm"
-          />
+          /> */}
+
+          <input
+  value={amount ? (amount / MGX_PRICE).toFixed(2) : ""}
+  readOnly
+  placeholder="Enter MGXCOIN Amount"
+  className="bg-transparent outline-none w-full text-sm"
+/>
+
+
+
         </div>
       </div>
     </div>
@@ -410,10 +463,19 @@ const [payOpen, setPayOpen] = useState(false);
   <div className="neoBorder !rounded-[10px] !mb-3.5">
   <div className="bg-[#000000] flex flex-row gap-4 px-4 sm:px-10 py-5 !rounded-[10px] flex-wrap custom-responsive">
     
-    <button className="flex-1 py-2 rounded-lg neoCard border border-[#E6B65C] flex items-center justify-center gap-2">
+    {/* <button className="flex-1 py-2 rounded-lg neoCard border border-[#E6B65C] flex items-center justify-center gap-2">
       <img src={wallet} alt="wallet" className="w-5 h-5" />
       CONNECT WALLET
-    </button>
+    </button> */}
+
+    <button
+  onClick={() => open()}
+  className="flex-1 py-2 rounded-lg neoCard border border-[#E6B65C] flex items-center justify-center gap-2"
+>
+  <img src={wallet} className="w-5 h-5" />
+  {isConnected ? address.slice(0,6)+"..." : "CONNECT WALLET"}
+</button>
+
 
    
     <button
