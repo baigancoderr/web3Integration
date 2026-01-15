@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { SiBinance, SiEthereum, SiTether ,SiSolana} from "react-icons/si";
 
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 
 import PortfolioRadialChart from "./PortfolioRadialChart";
@@ -45,29 +45,51 @@ const BuyNowPage = () => {
 const { address, isConnected } = useAppKitAccount();
 
 const [amount, setAmount] = useState("");
-const MGX_PRICE = 0.05; // same as backend dummy price
+const MGX_PRICE = 1; // 1 MGX = 1 USD
 
+// Crypto prices state
+const [cryptoPrices, setCryptoPrices] = useState({
+  BNB: 0,
+  ETH: 0,
+  SOL: 0,
+  USDT: 1,
+  MGX: 1
+});
+const [loadingPrices, setLoadingPrices] = useState(true);
+
+// Fetch live crypto prices
+useEffect(() => {
+  const fetchPrices = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:5000/api/prices/crypto", {
+        timeout: 8000 // 8 second timeout
+      });
+      if (data.success) {
+        setCryptoPrices(data.prices);
+        setLoadingPrices(false);
+        // Only show warning if using fallback prices (not cached)
+        if (data.fallback && !data.cached) {
+          console.warn("Using fallback prices:", data.warning);
+        }
+      }
+    } catch (error) {
+      console.error("Failed to fetch prices:", error);
+      // Don't set default prices, keep loading state until API succeeds
+    }
+  };
+
+  fetchPrices();
+  // Update prices every 30 seconds
+  const interval = setInterval(fetchPrices, 30000);
+  return () => clearInterval(interval);
+}, []);
 
     const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
    
 
-//     const handleBuy = async () => {
-//   if (!isConnected) return toast.error("Connect wallet first");
-//   if (!amount) return toast.error("Enter amount");
 
-//   const txHash = "0x" + Math.random().toString(16).slice(2); 
-
-//   await axios.post("http://localhost:5000/api/pay/buy", {
-//     wallet: address,
-//     amount: Number(amount),
-//     token: activeToken,
-//     txHash
-//   });
-
-//   toast.success("MGX purchased!");
-// };
 
 
 const handleBuy = async () => {
@@ -146,6 +168,11 @@ const tokens = [
     key: "SOL",
     label: "SOL",
     icon: <SiSolana className="text-purple-400 text-xl" />,
+  },
+  {
+    key: "USDT",
+    label: "USDT",
+    icon: <SiTether className="text-green-400 text-xl" />,
   },
 ];
 
@@ -347,6 +374,7 @@ const [payOpen, setPayOpen] = useState(false);
         {activeToken === "BNB" && <SiBinance className="text-yellow-400" />}
         {activeToken === "ETH" && <SiEthereum className="text-blue-400" />}
         {activeToken === "SOL" && <SiSolana className="text-purple-400" />}
+        {activeToken === "USDT" && <SiTether className="text-green-400" />}
         {activeToken}
       </button>
 
@@ -446,7 +474,8 @@ const [payOpen, setPayOpen] = useState(false);
           <input
   value={amount}
   onChange={(e) => setAmount(e.target.value)}
-  placeholder="Enter  Amount"
+  placeholder={loadingPrices ? "Loading prices..." : `Enter ${activeToken} Amount`}
+  disabled={loadingPrices}
   className="bg-transparent outline-none w-full text-sm"
 />
 
@@ -472,9 +501,13 @@ const [payOpen, setPayOpen] = useState(false);
           /> */}
 
           <input
-  value={amount ? (amount / MGX_PRICE).toFixed(2) : ""}
+  value={
+    amount && cryptoPrices[activeToken]
+      ? ((amount * cryptoPrices[activeToken]) / MGX_PRICE).toFixed(2)
+      : ""
+  }
   readOnly
-  placeholder="Enter MGXCOIN Amount"
+  placeholder={loadingPrices ? "Loading..." : "MGX Amount"}
   className="bg-transparent outline-none w-full text-sm"
 />
 
