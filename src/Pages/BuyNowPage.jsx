@@ -51,25 +51,54 @@ const MGX_PRICE = 0.05; // same as backend dummy price
     const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    // const handleBuy = () => {
-    //     toast.success("Purchase simulated (UI only)");
-    // };
+   
 
-    const handleBuy = async () => {
+//     const handleBuy = async () => {
+//   if (!isConnected) return toast.error("Connect wallet first");
+//   if (!amount) return toast.error("Enter amount");
+
+//   const txHash = "0x" + Math.random().toString(16).slice(2); 
+
+//   await axios.post("http://localhost:5000/api/pay/buy", {
+//     wallet: address,
+//     amount: Number(amount),
+//     token: activeToken,
+//     txHash
+//   });
+
+//   toast.success("MGX purchased!");
+// };
+
+
+const handleBuy = async () => {
   if (!isConnected) return toast.error("Connect wallet first");
   if (!amount) return toast.error("Enter amount");
 
-  const txHash = "0x" + Math.random().toString(16).slice(2); // dummy tx
+  try {
+    const { data } = await axios.post(
+      "http://localhost:5000/api/pay/buy",
+      {
+        wallet: address,
+        amount,
+        token: activeToken
+      }
+    );
 
-  await axios.post("http://localhost:5000/api/pay/buy", {
-    wallet: address,
-    amount: Number(amount),
-    token: activeToken,
-    txHash
-  });
+    console.log("Payment Response:", data);
 
-  toast.success("MGX purchased!");
+    if (data.paymentUrl) {
+      window.location.href = data.paymentUrl; // 🔥 REAL SCANNER PAGE
+    } else {
+      toast.error("Payment URL not received");
+    }
+  } catch (error) {
+    console.error("Payment Error:", error);
+    toast.error(error.response?.data?.error || "Payment failed");
+  }
 };
+
+
+
 
 
 
@@ -411,17 +440,13 @@ const [payOpen, setPayOpen] = useState(false);
 </div>
 
 
-
-          {/* <input
-            type="text"
-            placeholder="Enter Usdt Amount"
-            className="bg-transparent outline-none w-full text-sm"
-          /> */}
+{/* 
+      logic for amount input */}
 
           <input
   value={amount}
   onChange={(e) => setAmount(e.target.value)}
-  placeholder="Enter USDT amount"
+  placeholder="Enter  Amount"
   className="bg-transparent outline-none w-full text-sm"
 />
 

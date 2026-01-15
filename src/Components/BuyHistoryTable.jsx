@@ -121,14 +121,7 @@ const BuyHistoryTable = () => {
                 >
                     Buy History
                 </button>
-                {/* <button
-                    onClick={() => handleSwitchData('Refral')}
-                    className={`px-3 py-1
-                     ${currentData === 'Refral' ? 'bg-yellow-500' : 'bg-gray-700'}
-                      text-white rounded-3xl`}
-                >
-                    Referral
-                </button> */}
+               
             </div>
             <div className=' w-full    ' >
                 <div className="relative overflow-x-auto shadow-md   ">

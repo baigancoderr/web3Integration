@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const purchaseSchema = new mongoose.Schema({
   wallet: String,
-  payToken: String, // BNB or USDT
+  payToken: String, 
   amountPaid: Number,
   mgxAmount: Number,
   txHash: String,

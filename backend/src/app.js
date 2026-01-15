@@ -12,8 +12,11 @@ app.get("/", (req, res) => {
 
 // Auth routes
 app.use("/api/auth", require("./routes/auth.routes"));
-// Payment routes
-app.use("/api/pay", require("./routes/payment.routes"));
+// Payment routes (old dummy - for testing)
+app.use("/api/payment", require("./routes/payment.routes"));
+// Pay routes (NOWPayments integration)
+app.use("/api/pay", require("./routes/pay.routes"));
+
 
 
 module.exports = app;
