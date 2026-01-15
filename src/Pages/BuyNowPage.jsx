@@ -77,7 +77,7 @@ useEffect(() => {
       // Don't set default prices, keep loading state until API succeeds
     }
   };
-
+ 
   fetchPrices();
   // Update prices every 30 seconds
   const interval = setInterval(fetchPrices, 30000);
@@ -147,34 +147,71 @@ const [periodOpen, setPeriodOpen] = useState(false);
 
   const [activeToken, setActiveToken] = useState("BNB");
 
+
+  
   const payIcons = {
   BNB: <SiBinance className="text-yellow-400 text-xl" />,
   ETH: <SiEthereum className="text-blue-400 text-xl" />,
   SOL: <SiSolana className="text-purple-400 text-xl" />,
 };
 
-const tokens = [
-  {
+// const tokens = [
+//   {
+//     key: "BNB",
+//     label: "BNB",
+//     icon: <SiBinance className="text-yellow-400 text-xl" />,
+//   },
+//   {
+//     key: "ETH",
+//     label: "ETH",
+//     icon: <SiEthereum className="text-blue-400 text-xl" />,
+//   },
+//   {
+//     key: "SOL",
+//     label: "SOL",
+//     icon: <SiSolana className="text-purple-400 text-xl" />,
+//   },
+//   {
+//     key: "USDT",
+//     label: "USDT",
+//     icon: <SiTether className="text-green-400 text-xl" />,
+//   },
+// ];
+
+
+const TOKEN_CONFIG = {
+  BNB: {
     key: "BNB",
     label: "BNB",
     icon: <SiBinance className="text-yellow-400 text-xl" />,
   },
-  {
+  ETH: {
     key: "ETH",
     label: "ETH",
     icon: <SiEthereum className="text-blue-400 text-xl" />,
   },
-  {
+  SOL: {
     key: "SOL",
     label: "SOL",
     icon: <SiSolana className="text-purple-400 text-xl" />,
   },
-  {
+  USDT: {
     key: "USDT",
     label: "USDT",
     icon: <SiTether className="text-green-400 text-xl" />,
   },
-];
+};
+
+// const youPayTokens = [
+//   TOKEN_CONFIG[activeToken],
+//   TOKEN_CONFIG.USDT,
+// ];
+
+const youPayTokens =
+  activeToken === "USDT"
+    ? [TOKEN_CONFIG.USDT, TOKEN_CONFIG.BNB, TOKEN_CONFIG.ETH, TOKEN_CONFIG.SOL]
+    : [TOKEN_CONFIG[activeToken], TOKEN_CONFIG.USDT];
+
 
 const [payOpen, setPayOpen] = useState(false);
 
@@ -439,7 +476,8 @@ const [payOpen, setPayOpen] = useState(false);
     onClick={() => setPayOpen(!payOpen)}
     className="flex items-center gap-2"
   >
-    {tokens.find(t => t.key === activeToken)?.icon}
+    {TOKEN_CONFIG[activeToken]?.icon}
+
     <FaChevronDown
       className={`text-xs transition ${
         payOpen ? "rotate-180" : ""
@@ -450,19 +488,22 @@ const [payOpen, setPayOpen] = useState(false);
   {/* Dropdown */}
   {payOpen && (
     <div className="absolute left-0 top-full mt-2 w-28 neoCard border border-[#E6B65C] rounded-lg z-50">
-      {tokens.map((token) => (
-        <button
-          key={token.key}
-          onClick={() => {
-            setActiveToken(token.key);
-            setPayOpen(false);
-          }}
-          className="w-full flex items-center gap-2 px-3 py-2 hover:bg-[#1a1a1a]"
-        >
-          {token.icon}
-          <span className="text-sm">{token.label}</span>
-        </button>
-      ))}
+      {youPayTokens.map((token) => (
+  <button
+    key={token.key}
+    onClick={() => {
+      setActiveToken(token.key);
+      setPayOpen(false);
+    }}
+    className="w-full flex items-center gap-2 px-3 py-2 hover:bg-[#1a1a1a]"
+  >
+    {token.icon}
+    <span className="text-sm">{token.label}</span>
+  </button>
+))}
+
+
+
     </div>
   )}
 </div>

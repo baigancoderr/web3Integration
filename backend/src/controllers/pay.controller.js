@@ -2,10 +2,10 @@ const axios = require("axios");
 
 // Map frontend tokens to NOWPayments currency codes
 const currencyMap = {
-  BNB: "bnbbsc",    // Binance Smart Chain BNB
-  ETH: "eth",        // Ethereum
-  SOL: "sol",        // Solana
-  USDT: "usdttrc20"  // USDT TRC20
+  BNB: "bnbbsc",   
+  ETH: "eth",      
+  SOL: "sol",        
+  USDT: "usdttrc20"  
 };
 
 exports.createPayment = async (req, res) => {
